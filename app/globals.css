@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
-  --foreground: #f5f5f3;
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #444444;
+  --accent: #5B21D4;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
 }
 
 * {
@@ -23,12 +25,29 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", "Arial", sans-serif;
   min-height: 100vh;
-  background-image:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 30%),
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.04), transparent 18%),
-    linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+/* Hide default scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 a {
@@ -37,74 +56,143 @@ a {
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(91, 33, 212, 0.3);
   color: #ffffff;
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes sweep {
-  0% {
-    transform: translateX(-40%);
-  }
-
-  100% {
-    transform: translateX(40%);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease both;
-}
-
-.animate-sweep {
-  animation: sweep 12s linear infinite;
-}
-
-/* Black asset placeholder used across the layout so assets can be dropped in without shifting layout */
-.asset-placeholder {
-  background: #000;
-  border-radius: 0.75rem;
-  border: 1px dashed rgba(255,255,255,0.06);
-  display: block;
-  position: relative;
-  overflow: hidden;
-}
-
-.asset-placeholder::after {
-  content: "";
+/* Asset placeholder classes for easy replacement */
+.hero-video-bg {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.01), transparent 30%);
-  pointer-events: none;
+  z-index: 0;
+  background: #111;
+  opacity: 0.6;
 }
 
-.asset-play {
-  width: 68px;
-  height: 68px;
-  border-radius: 9999px;
-  display: inline-grid;
-  place-items: center;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
+.hero-thumbnail-1,
+.hero-thumbnail-2,
+.hero-thumbnail-3,
+.hero-thumbnail-4 {
+  width: 90px;
+  height: 70px;
+  border-radius: 8px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes subtle-pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.01); opacity: 0.96; }
-  100% { transform: scale(1); opacity: 1; }
+.capability-visual-brand-strategy {
+  background: #1a1a1a;
 }
 
-.asset-placeholder.animate-pulse {
-  animation: subtle-pulse 6s ease-in-out infinite;
+.capability-visual-brand-identity {
+  background: #111;
+}
+
+.capability-visual-product-design {
+  background: #5B21D4;
+}
+
+.capability-visual-ux-ui {
+  background: #1a1a2e;
+}
+
+.capability-visual-web-dev {
+  background: #0d1117;
+}
+
+.capability-visual-brand-video {
+  background: #1a0a00;
+}
+
+.work-card-numbers {
+  background: #D4C5A9;
+}
+
+.work-card-crypto-autos {
+  background: #1a1a2a;
+}
+
+.work-card-verse-world {
+  background: #1a1a1a;
+}
+
+.service-card-seed-sprint {
+  background: #1a0e08;
+}
+
+.service-card-product-sprint {
+  background: #0e0e0e;
+}
+
+.service-card-brand-creation {
+  background: #1a1028;
+}
+
+.service-card-transformation {
+  background: #0a0f0a;
+}
+
+.service-card-subscription {
+  background: #0d0d0d;
+}
+
+.service-card-ventures {
+  background: #1a1a2a;
+}
+
+.founder-photo-ahmed,
+.founder-photo-reggie,
+.founder-photo-andy {
+  width: 160px;
+  height: 160px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  filter: grayscale(100%);
+}
+
+.news-card-1,
+.news-card-2,
+.news-card-3 {
+  background: #111;
+}
+
+/* Marquee animations */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-left {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-reverse 40s linear infinite;
+}
+
+.marquee-container:hover .marquee-left,
+.marquee-container:hover .marquee-right {
+  animation-play-state: paused;
+}
+
+/* Smooth transitions */
+.transition-opacity-300 {
+  transition: opacity 0.3s ease;
+}
+
+.transition-transform-300 {
+  transition: transform 0.3s ease;
 }
