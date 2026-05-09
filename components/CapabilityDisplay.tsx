@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { capabilityAssets } from "@/content/images";
 
 interface Capability {
   id: string;
