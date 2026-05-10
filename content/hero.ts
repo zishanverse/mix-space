@@ -62,7 +62,7 @@ export const heroContent: HeroContent = {
   },
 
   video: {
-    src: "/assets/video/3197cdd6-1ef0a0b9.mp4",
+    src: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778419667/3197cdd6-1ef0a0b9_fianin.mp4",
     alt: "Abstract dark video background with futuristic visual effects",
     fallbackColor: "#0a0a0a",
     thumbnailVideoSrc: "https://download-video-ak.vimeocdn.com/v3-1/playback/7c226cf2-eeab-440c-adf8-96096152ce50/2686a785-727ee365?__token__=st=1778415294~exp=1778418894~acl=%2Fv3-1%2Fplayback%2F7c226cf2-eeab-440c-adf8-96096152ce50%2F2686a785-727ee365%2A~hmac=18a5a228971aba0ae3ebd8616ab0bbcf005a0f5b80acbbffbe8e3d171933b1e5&r=dXMtd2VzdDE%3D",
