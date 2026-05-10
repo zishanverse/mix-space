@@ -34,8 +34,8 @@ export function InvestorsSection() {
 
       <div className="flex flex-col gap-8 relative">
         {/* Left and right fade gradients for the marquee */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-black to-transparent z-10 pointer-events-none" />
         
         <InfiniteMarquee 
           items={renderLogos(row1Logos)} 

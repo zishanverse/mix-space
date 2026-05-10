@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, forwardRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { gsap } from "@/lib/gsap-plugins";
 import { heroContent } from "@/content/hero";
@@ -15,9 +15,10 @@ interface CTAButtonProps {
 }
 
 // Arrow Right Icon
-function ArrowRightIcon({ className }: { className?: string }) {
+const ArrowRightIcon = forwardRef<SVGSVGElement, { className?: string }>(({ className }, ref) => {
   return (
     <svg
+      ref={ref}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -32,12 +33,14 @@ function ArrowRightIcon({ className }: { className?: string }) {
       />
     </svg>
   );
-}
+});
+ArrowRightIcon.displayName = "ArrowRightIcon";
 
 // Arrow Down Icon
-function ArrowDownIcon({ className }: { className?: string }) {
+const ArrowDownIcon = forwardRef<SVGSVGElement, { className?: string }>(({ className }, ref) => {
   return (
     <svg
+      ref={ref}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +55,8 @@ function ArrowDownIcon({ className }: { className?: string }) {
       />
     </svg>
   );
-}
+});
+ArrowDownIcon.displayName = "ArrowDownIcon";
 
 export function CTAButton({
   label = heroContent.ctaButton.label,
@@ -60,7 +64,7 @@ export function CTAButton({
   ariaLabel = heroContent.ctaButton.ariaLabel,
   className = "",
   variant = "outline",
-  icon = heroContent.ctaButton.icon,
+  icon ="arrow-down",
 }: CTAButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const arrowRef = useRef<SVGSVGElement>(null);
@@ -98,7 +102,7 @@ export function CTAButton({
   }, []);
 
   // Framer Motion variants for button
-  const buttonVariants = {
+  const buttonVariants: import("framer-motion").Variants = {
     initial: {
       opacity: 0,
       scale: 0.95,
@@ -107,8 +111,8 @@ export function CTAButton({
       opacity: 1,
       scale: 1,
       transition: {
-        duration: heroContent.animation.ctaDuration,
-        delay: heroContent.animation.ctaDelay,
+        duration: heroContent.animation.duration,
+        delay: heroContent.animation.line1Delay,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     },

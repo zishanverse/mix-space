@@ -43,7 +43,7 @@ export function EngagementCard({ engagement, index }: EngagementCardProps) {
       style={{ opacity: 0 }} // Hidden before GSAP animation
     >
       {/* Media container with hover effects */}
-      <div className="group relative w-full aspect-[3/2] overflow-hidden rounded-2xl bg-[#111] cursor-pointer">
+      <div className="group relative w-full aspect-3/2 overflow-hidden rounded-2xl bg-[#111] cursor-pointer">
         {/* Placeholder "Image" - scales on hover */}
         <div className="absolute inset-0 bg-[#1a1a1a] transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center border border-white/5">
            <span className="text-white/10 font-mono text-sm tracking-widest uppercase">Media Placeholder</span>

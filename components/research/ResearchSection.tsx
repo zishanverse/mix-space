@@ -44,7 +44,7 @@ export function ResearchSection() {
             <div key={article.id} className="group cursor-pointer flex flex-col gap-6">
               {/* Image Container with hover scale */}
               <div 
-                className="w-full aspect-[4/5] rounded-2xl overflow-hidden relative"
+                className="w-full aspect-4/5 rounded-2xl overflow-hidden relative"
                 style={{ backgroundColor: article.color }}
               >
                 <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105 border border-white/5 flex items-center justify-center">

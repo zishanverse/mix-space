@@ -14,11 +14,11 @@ interface AnimatedHeadlineProps {
 }
 
 export function AnimatedHeadline({
-  text = heroContent.headline.text,
+  text = heroContent.headline.line1,
   className = "",
   delay = 0,
-  duration = heroContent.animation.headlineDuration,
-  stagger = heroContent.animation.headlineStagger,
+  duration = heroContent.animation.duration,
+  stagger = 0.05,
 }: AnimatedHeadlineProps) {
   const textRef = useRef<HTMLHeadingElement>(null);
   const isInView = useInView(textRef, { once: true, margin: "-10%" });
@@ -28,7 +28,7 @@ export function AnimatedHeadline({
   useTextAnimation(textRef, { duration, stagger, delay });
 
   // Framer Motion hover effect on the container
-  const containerVariants = {
+  const containerVariants: import("framer-motion").Variants = {
     initial: { opacity: 0 },
     animate: { opacity: 1, transition: { duration: 0.3 } },
     hover: {
@@ -58,14 +58,14 @@ interface AnimatedSubheadlineProps {
 }
 
 export function AnimatedSubheadline({
-  text = heroContent.subheadline.text,
+  text = heroContent.description.text,
   className = "",
-  delay = heroContent.animation.subheadlineDelay,
+  delay = heroContent.animation.descriptionDelay,
 }: AnimatedSubheadlineProps) {
   const ref = useRef<HTMLParagraphElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
-  const variants = {
+  const variants: import("framer-motion").Variants = {
     initial: {
       opacity: 0,
       y: 20,
@@ -74,7 +74,7 @@ export function AnimatedSubheadline({
       opacity: 1,
       y: 0,
       transition: {
-        duration: heroContent.animation.subheadlineDuration,
+        duration: heroContent.animation.duration,
         delay,
         ease: [0.25, 0.46, 0.45, 0.94],
       },

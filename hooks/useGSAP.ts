@@ -43,7 +43,7 @@ export function useGSAP<T extends HTMLElement = HTMLElement>(
 
     // Create GSAP context
     const ctx = gsap.context(() => {
-      const result = callbackRef.current(contextRef);
+      const result = callbackRef.current(contextRef as any);
       if (typeof result === "function") {
         return result as () => void;
       }
@@ -103,7 +103,7 @@ export function useGSAPTimeline<T extends HTMLElement = HTMLElement>(
  * Hook for animating text with stagger effects
  */
 export function useTextAnimation<T extends HTMLElement = HTMLElement>(
-  ref: React.RefObject<T>,
+  ref: React.RefObject<T | null> | { current: T | null },
   options: {
     duration?: number;
     stagger?: number;
