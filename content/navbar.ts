@@ -1,0 +1,66 @@
+/**
+ * Navbar Content Data
+ * All text, links, and configuration for the navbar component
+ */
+
+export interface NavItem {
+  label: string;
+  href: string;
+}
+
+export interface SectionInfo {
+  index: string;
+  label: string;
+  id: string;
+}
+
+export const navbarContent = {
+  // Logo configuration
+  logo: {
+    name: "NOIR",
+    href: "#top",
+    ariaLabel: "NOIR - Home",
+  },
+
+  // Navigation links
+  navLinks: [
+    { label: "Work", href: "#work" },
+    { label: "Studio", href: "#studio" },
+    { label: "Ventures", href: "#ventures" },
+    { label: "News", href: "#news" },
+    { label: "Contact", href: "#contact" },
+  ] as NavItem[],
+
+  // CTA button
+  ctaButton: {
+    label: "Work with us",
+    href: "#contact",
+    ariaLabel: "Work with us - Contact us",
+    icon: "chat", // chat icon
+  },
+
+  // Section labels for scroll tracking
+  sections: [
+    { index: "[01]", label: "ABOUT NOIR", id: "about-noir" },
+    { index: "[02]", label: "OUR CAPABILITIES", id: "capabilities" },
+    { index: "[03]", label: "RECENT WORK", id: "recent-work" },
+    { index: "[04]", label: "SIGNATURE ENGAGEMENTS", id: "signature-engagements" },
+    { index: "[05]", label: "TESTIMONIALS", id: "testimonials" },
+    { index: "[06]", label: "NEWS", id: "news" },
+  ] as SectionInfo[],
+
+  // Scroll behavior
+  scroll: {
+    borderThreshold: 100, // pixels
+    borderColor: "rgba(255, 255, 255, 0.08)",
+  },
+
+  // Mobile menu
+  mobile: {
+    menuLabel: "Menu",
+    closeLabel: "Close",
+    animationDuration: 0.3, // seconds
+  },
+} as const;
+
+export type NavbarContent = typeof navbarContent;

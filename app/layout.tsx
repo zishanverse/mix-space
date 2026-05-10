@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,7 +11,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "NOIR — Global Branding & Design Studio",
-  description: "We are a global branding & design studio, working with founders to create brands, products & digital experiences for the new internet.",
+  description:
+    "We are a global branding & design studio, working with founders to create brands, products & digital experiences for the new internet.",
 };
 
 export default function RootLayout({
@@ -20,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">{children}</body>
+      <body className="min-h-full antialiased">
+        <Navbar />
+        <main id="top">{children}</main>
+      </body>
     </html>
   );
 }

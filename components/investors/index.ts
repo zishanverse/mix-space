@@ -1,0 +1,1 @@
+export { InvestorsSection } from "./InvestorsSection";

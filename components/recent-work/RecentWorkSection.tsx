@@ -1,0 +1,76 @@
+"use client";
+
+import { SectionLabels } from "@/components/about-us/SectionLabels";
+import { HighlightText } from "@/components/ui/HighlightText";
+import { ProjectCard } from "./ProjectCard";
+import { recentWorkContent } from "@/content/recent-work";
+import { ScrollMarquee } from "@/components/ui/ScrollMarquee";
+
+export function RecentWorkSection() {
+  const { label, headline, projects } = recentWorkContent;
+
+  // Layout:
+  // Row 1: card[0] (normal, left half) | card[1] (normal, right half)
+  // Row 2: card[2] (wide, full width)
+  // Row 3: card[3] (normal, left half) | card[4] (normal, right half)
+
+  const row1 = projects.slice(0, 2);
+  const row2 = projects.slice(2, 3);
+  const row3 = projects.slice(3, 5);
+
+  return (
+    <section id="recent-work" className="relative bg-black px-4 sm:px-6 lg:px-8 pt-8 pb-24 ">
+      {/* Header */}
+      <SectionLabels
+        index={label.index}
+        title={label.title}
+        indexColor="#555"
+        titleColor="#555"
+      />
+      <div className="pt-20 ">
+
+      {/* Highlighted headline — centred, large */}
+      <div className="mx-auto max-w-7xl text-center mb-16 lg:mb-20">
+        <HighlightText
+          segments={headline.segments}
+          className="text-[clamp(20px,2.4vw,48px)]"
+          />
+      </div>
+
+      {/* Project grid */}
+      <div className="mx-auto max-w-[92%]  flex flex-col gap-4">
+
+        {/* Row 1 — two equal columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {row1.map((p, i) => (
+            <div key={p.id} className="relative" style={{ height: "clamp(300px, 42vw, 560px)" }}>
+              <ProjectCard project={p} index={i} />
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 — wide single card */}
+        {row2.map((p, i) => (
+          <div key={p.id} className="relative w-full" style={{ height: "clamp(260px, 36vw, 480px)" }}>
+            <ProjectCard project={p} index={i + 2} />
+          </div>
+        ))}
+
+        {/* Row 3 — two equal columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {row3.map((p, i) => (
+            <div key={p.id} className="relative" style={{ height: "clamp(300px, 42vw, 560px)" }}>
+              <ProjectCard project={p} index={i + 3} />
+            </div>
+          ))}
+        </div>
+
+      </div>
+          </div>
+                <ScrollMarquee text="From Pre-Seed to IPO" />
+
+    </section>
+  );
+}
+
+export default RecentWorkSection;
