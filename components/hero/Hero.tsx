@@ -9,7 +9,7 @@ import { heroContent } from "@/content/hero";
 export function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-end pb-20 overflow-hidden"
+      className="relative min-h-screen flex items-end  overflow-hidden"
       style={{ background: heroContent.video.fallbackColor }}
     >
       {/* Video Background */}
