@@ -69,16 +69,27 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       onMouseLeave={handleMouseLeave}
       style={{ opacity: 0 }}
     >
-      {/* Image */}
-      <div ref={imgRef} className="relative w-full h-full">
-        <Image
-          src={project.image}
-          alt={project.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
-          priority={index < 2}
-        />
+      {/* Media (Video or Image) */}
+      <div ref={imgRef} className="relative w-full h-full bg-[#111]">
+        {project.videoSrc ? (
+          <video
+            src={project.videoSrc}
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        ) : (
+          <Image
+            src={project.image}
+            alt={project.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+            priority={index < 2}
+          />
+        )}
       </div>
 
       {/* Dark overlay on hover */}

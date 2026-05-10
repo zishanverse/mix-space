@@ -40,12 +40,12 @@ export function CapabilitiesSection() {
         </div>
 
         {/* Mobile: image above list, not sticky */}
-        <div className="block lg:hidden w-full aspect-video">
+        <div className="block lg:hidden w-[92%] mx-auto aspect-[4/3] overflow-hidden rounded-2xl">
           <CapabilityVisual activeCapability={activeCapability} />
         </div>
 
         {/* ── RIGHT: scrollable list ── */}
-        <div className="w-full lg:w-[58%] px-8 lg:px-16 ">
+        <div className="w-full lg:w-[58%] px-4 sm:px-8 lg:px-16 mt-8 lg:mt-0">
           <CapabilityList
             activeCapability={activeCapability}
             onCapabilityChange={setActiveCapability}

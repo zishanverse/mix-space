@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { gsap } from "@/lib/gsap-plugins";
 import { EngagementItem } from "@/content/signature-engagements";
 
@@ -44,10 +45,20 @@ export function EngagementCard({ engagement, index }: EngagementCardProps) {
     >
       {/* Media container with hover effects */}
       <div className="group relative w-full aspect-3/2 overflow-hidden rounded-2xl bg-[#111] cursor-pointer">
-        {/* Placeholder "Image" - scales on hover */}
-        <div className="absolute inset-0 bg-[#1a1a1a] transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center border border-white/5">
-           <span className="text-white/10 font-mono text-sm tracking-widest uppercase">Media Placeholder</span>
-        </div>
+        {/* Image or Placeholder - scales on hover */}
+        {engagement.image ? (
+          <Image
+            src={engagement.image}
+            alt={engagement.title}
+            fill
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[#1a1a1a] transition-transform duration-700 ease-out group-hover:scale-105 flex items-center justify-center border border-white/5">
+             <span className="text-white/10 font-mono text-sm tracking-widest uppercase">Media Placeholder</span>
+          </div>
+        )}
 
         {/* Hover "Inquire" Circle */}
         <div className="absolute inset-0 m-auto w-24 h-24 bg-white rounded-full flex items-center justify-center pointer-events-none opacity-0 scale-50 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100">

@@ -9,6 +9,8 @@ export interface Capability {
   visualClass: string;
   backgroundColor: string;
   description?: string;
+  videoSrc?: string;
+  videoPoster?: string;
 }
 
 export interface CapabilitiesContent {
@@ -60,6 +62,8 @@ export const capabilitiesContent: CapabilitiesContent = {
       name: "Brand Strategy",
       visualClass: "capability-visual-brand-strategy",
       backgroundColor: "#1a1a1a",
+      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f304563a09ff2ebbfb51_01%20Strategy-transcode.mp4",
+      videoPoster: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f304563a09ff2ebbfb51_01%20Strategy-poster-00001.jpg",
     },
     {
       id: "brand-identity",
@@ -72,18 +76,21 @@ export const capabilitiesContent: CapabilitiesContent = {
       name: "Product Design",
       visualClass: "capability-visual-product-design",
       backgroundColor: "#5B21D4", // Purple - DEFAULT
+      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6752269d774a939460393441_03%20Product-transcode.mp4",
     },
     {
       id: "ux-ui",
       name: "UX / UI Design",
       visualClass: "capability-visual-ux-ui",
       backgroundColor: "#1a1a2e",
+      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F675226adf3702bd049989fd3_04%20UX%20UI-transcode.mp4",
     },
     {
       id: "web-dev",
       name: "Website Development",
       visualClass: "capability-visual-web-dev",
       backgroundColor: "#0d1117",
+      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f3c66fef3112b6a8d9a1_05%20Web-transcode.mp4",
     },
     {
       id: "brand-video",
@@ -102,6 +109,7 @@ export const capabilitiesContent: CapabilitiesContent = {
       name: "Content Creation",
       visualClass: "capability-visual-content-creation",
       backgroundColor: "#0a1a0a",
+      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f4d2ef445b2b7591c4c5_08%20Content-transcode.mp4",
     },
     {
       id: "paid-social",
@@ -114,6 +122,7 @@ export const capabilitiesContent: CapabilitiesContent = {
       name: "Advertising",
       visualClass: "capability-visual-advertising",
       backgroundColor: "#0d0a0a",
+      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f40a01bac18bcf639e9a_10%20Ads-transcode.mp4",
     },
   ],
 

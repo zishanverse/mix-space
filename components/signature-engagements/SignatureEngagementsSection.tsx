@@ -29,7 +29,7 @@ export function SignatureEngagementsSection() {
 
         {/* 3-Column Grid for Engagements */}
         <div className="mx-auto max-w-[95%]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-20">
             {engagements.map((engagement, index) => (
               <EngagementCard
                 key={engagement.id}

@@ -9,29 +9,31 @@ export function HeroThumbnail() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: heroContent.animation.thumbnailDelay, duration: 0.6 }}
-      className="absolute bottom-20 left-0 grid grid-cols-2 gap-1 lg:left-12"
+      className="absolute bottom-20 left-4 lg:left-12 w-[184px] h-[144px] overflow-hidden rounded-xl border border-white/10 bg-[#1a1a1a]"
     >
-      {/* Thumbnail 1 */}
-      <div className="hero-thumbnail-1" />
-
-      {/* Thumbnail 2 */}
-      <div className="hero-thumbnail-2" />
-
-      {/* Thumbnail 3 with play button */}
-      <div className="hero-thumbnail-3 relative flex items-center justify-center">
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white">
+      {heroContent.video.thumbnailVideoSrc ? (
+        <video
+          src={heroContent.video.thumbnailVideoSrc}
+          className="h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      ) : null}
+      
+      {/* Play button overlay (optional, visually indicates it's a video) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 transition-transform hover:scale-105">
           <svg
             viewBox="0 0 24 24"
-            className="ml-0.5 h-4 w-4 text-black"
+            className="ml-0.5 h-4 w-4 text-white"
             fill="currentColor"
           >
             <path d="M8 5v14l11-7z" />
           </svg>
         </div>
       </div>
-
-      {/* Thumbnail 4 */}
-      <div className="hero-thumbnail-4" />
     </motion.div>
   );
 }

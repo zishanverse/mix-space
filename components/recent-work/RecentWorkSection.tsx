@@ -43,7 +43,7 @@ export function RecentWorkSection() {
         {/* Row 1 — two equal columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {row1.map((p, i) => (
-            <div key={p.id} className="relative" style={{ height: "clamp(300px, 42vw, 560px)" }}>
+            <div key={p.id} className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
               <ProjectCard project={p} index={i} />
             </div>
           ))}
@@ -51,7 +51,7 @@ export function RecentWorkSection() {
 
         {/* Row 2 — wide single card */}
         {row2.map((p, i) => (
-          <div key={p.id} className="relative w-full" style={{ height: "clamp(260px, 36vw, 480px)" }}>
+          <div key={p.id} className="relative w-full aspect-video md:aspect-[21/9]">
             <ProjectCard project={p} index={i + 2} />
           </div>
         ))}
@@ -59,7 +59,7 @@ export function RecentWorkSection() {
         {/* Row 3 — two equal columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {row3.map((p, i) => (
-            <div key={p.id} className="relative" style={{ height: "clamp(300px, 42vw, 560px)" }}>
+            <div key={p.id} className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
               <ProjectCard project={p} index={i + 3} />
             </div>
           ))}

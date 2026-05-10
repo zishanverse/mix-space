@@ -16,7 +16,7 @@ export function Hero() {
       <VideoBackground />
 
       {/* Content Container */}
-      <div className="relative flex justify-center items-center  z-10 mx-53.75 h-screen w-full  px-6 lg:px-12">
+      <div className="relative flex justify-center items-center z-10 mx-auto h-screen w-full px-6 lg:px-12">
         {/* Description text - Right side, absolute positioned */}
         <HeroDescription />
 
