@@ -18,7 +18,7 @@ export function AboutUsSection({
 }: AboutUsSectionProps) {
   return (
     <section
-      id="about-noir"
+      id="about-coders-express"
       className="relative flex min-h-[50vh] flex-col items-center justify-center bg-black px-4 overflow-x-hidden sm:px-6 lg:px-8 pb-60"
     >
       {/* Section Labels */}

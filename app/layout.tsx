@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NOIR — Global Branding & Design Studio",
+  title: "Coders Express — Global Branding & Design Studio",
   description:
     "We are a global branding & design studio, working with founders to create brands, products & digital experiences for the new internet.",
 };

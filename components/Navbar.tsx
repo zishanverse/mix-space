@@ -22,12 +22,19 @@ function LogoMark() {
         fill="#000"
         stroke="rgba(255,255,255,0.28)"
       />
-      <path
-        d="M10 9L36.5 35.5"
-        stroke="#fff"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
+      <text
+        x="50%"
+        y="50%"
+        dominantBaseline="central"
+        textAnchor="middle"
+        fill="#fff"
+        fontSize="16"
+        fontWeight="bold"
+        fontFamily="sans-serif"
+        letterSpacing="1"
+      >
+        CE
+      </text>
     </svg>
   );
 }

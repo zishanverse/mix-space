@@ -17,9 +17,9 @@ export interface SectionInfo {
 export const navbarContent = {
   // Logo configuration
   logo: {
-    name: "NOIR",
+    name: "CODERS EXPRESS",
     href: "#top",
-    ariaLabel: "NOIR - Home",
+    ariaLabel: "CODERS EXPRESS - Home",
   },
 
   // Navigation links
@@ -41,7 +41,7 @@ export const navbarContent = {
 
   // Section labels for scroll tracking
   sections: [
-    { index: "[01]", label: "ABOUT NOIR", id: "about-noir" },
+    { index: "[01]", label: "ABOUT CODERS EXPRESS", id: "about-coders-express" },
     { index: "[02]", label: "OUR CAPABILITIES", id: "capabilities" },
     { index: "[03]", label: "RECENT WORK", id: "recent-work" },
     { index: "[04]", label: "SIGNATURE ENGAGEMENTS", id: "signature-engagements" },

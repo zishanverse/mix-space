@@ -53,7 +53,7 @@ export interface AboutUsContent {
 export const aboutUsContent: AboutUsContent = {
   labels: {
     index: "[01]",
-    title: "ABOUT NOIR",
+    title: "ABOUT CODERS EXPRESS",
     indexColor: "#555",
     titleColor: "#555",
     fontSize: "11px",
@@ -61,11 +61,11 @@ export const aboutUsContent: AboutUsContent = {
   },
 
   text: {
-    content: "Since 2016 we have helped technology brands design, build and launch products across different themes of the new Internet.",
-    ariaLabel: "Since 2016 we have helped technology brands design, build and launch products across different themes of the new Internet",
+    content: "We help businesses grow online with our professional services through expert social media, SEO, web development, and digital ads and Influencer Marketing.",
+    ariaLabel: "We help businesses grow online with our professional services through expert social media, SEO, web development, and digital ads and Influencer Marketing.",
     initialColor: "#222",
     revealedColor: "#ffffff",
-    highlightedWords: ["design,", "build", "launch"],
+    highlightedWords: ["grow", "online", "social", "media,", "SEO,", "web", "development,", "digital", "ads."],
     highlightColor: "#ffffff",
     defaultMaxWidth: "4xl",
   },
@@ -73,7 +73,7 @@ export const aboutUsContent: AboutUsContent = {
   link: {
     label: "About us",
     href: "/about-us",
-    ariaLabel: "About us - Learn more about Noir",
+    ariaLabel: "About us - Learn more about Coders Express",
     position: "bottom-left",
     fontSize: "16px",
     hoverOpacity: 0.6,

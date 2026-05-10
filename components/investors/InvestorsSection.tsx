@@ -28,7 +28,7 @@ export function InvestorsSection() {
     <section className="bg-black py-24 sm:py-32 overflow-hidden border-t border-white/5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-16 text-center">
         <h2 className="text-[#555] text-xl md:text-2xl font-medium tracking-tight">
-          Noir projects raised from world-class investors.
+          Coders Express projects raised from world-class investors.
         </h2>
       </div>
 

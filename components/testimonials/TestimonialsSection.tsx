@@ -6,21 +6,21 @@ import Image from "next/image";
 const testimonials = [
   {
     id: 1,
-    quote: "Partnering with Noir on our new direction and website has transformed the Biconomy brand. The team brought visionary insights to life through design and storytelling and seamlessly executed our digital experience. Our brand feels supercharged and ready for our next stage of growth.",
+    quote: "Partnering with Coders Express on our new direction and website has transformed the Biconomy brand. The team brought visionary insights to life through design and storytelling and seamlessly executed our digital experience. Our brand feels supercharged and ready for our next stage of growth.",
     name: "Ahmed Al-Balaghi",
     company: "Biconomy",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
   },
   {
     id: 2,
-    quote: "Noir have been instrumental in consolidating our vision for Hydro. They have built the brand from the ground up, deeply integrating into our team to create a powerful mission led strategy, create beautiful branding and working meticulously on every single detail of our user experience design journey for our application.",
+    quote: "Coders Express have been instrumental in consolidating our vision for Hydro. They have built the brand from the ground up, deeply integrating into our team to create a powerful mission led strategy, create beautiful branding and working meticulously on every single detail of our user experience design journey for our application.",
     name: "Reggie Raghav",
     company: "Hydro",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
   },
   {
     id: 3,
-    quote: "Noir have so much ambition as an agency and were extremely efficient throughout the project, always available and not afraid to challenge the brief to get the best results. Anthony and his team really immersed themselves into our industry and had a great understanding of future proofing our brand and website.",
+    quote: "Coders Express have so much ambition as an agency and were extremely efficient throughout the project, always available and not afraid to challenge the brief to get the best results. Anthony and his team really immersed themselves into our industry and had a great understanding of future proofing our brand and website.",
     name: "Andy Morris",
     company: "Skyscanner",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",

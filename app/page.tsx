@@ -9,6 +9,7 @@ import { SignatureEngagementsSection } from "@/components/signature-engagements"
 import { InvestorsSection } from "@/components/investors";
 import { TestimonialsSection } from "@/components/testimonials";
 import { ResearchSection } from "@/components/research";
+import { FAQSection } from "@/components/faq";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -25,7 +26,7 @@ export default function Home() {
 
       {/* About Us Section - Custom highlighted words */}
       <AboutUsSection
-        highlightedWords={["design,", "build", "launch"]} // Highlight: "design," "build," "launch"
+        highlightedWords={["grow", "online", "social", "media,", "SEO,", "web", "development,", "digital", "ads."]} // Highlight core services
         enableHighlight={true} // Turn on word highlighting
       />
 
@@ -46,6 +47,9 @@ export default function Home() {
 
       {/* Research & Writings [05] */}
       <ResearchSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Site Footer */}
       <Footer />
