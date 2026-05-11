@@ -74,7 +74,7 @@ export function ClientLogos() {
   return (
     <div
       ref={containerRef}
-      className="mt-16 flex w-full items-center justify-between px-4 sm:px-8 lg:px-12"
+      className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-nowrap w-full items-center justify-items-center justify-between gap-y-8 gap-x-4 px-4 sm:px-8 lg:px-12"
       style={{
         minHeight: `${textRevealContent.logos.height}`,
       }}
@@ -90,7 +90,7 @@ export function ClientLogos() {
 
       {/* Decorative white dot */}
       <div
-        className="flex-shrink-0 rounded-full ml-4"
+        className="hidden md:block flex-shrink-0 rounded-full ml-4"
         style={{
           width: textRevealContent.decoration.dotSize,
           height: textRevealContent.decoration.dotSize,

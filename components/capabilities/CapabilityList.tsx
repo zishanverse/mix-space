@@ -36,8 +36,8 @@ export function CapabilityList({ activeCapability, onCapabilityChange }: Capabil
       triggers.push(
         ScrollTrigger.create({
           trigger: item,
-          start: "top 60%",
-          end: "bottom 40%",
+          start: "top 85%",
+          end: "bottom 15%",
           onEnter: () => {
             onCapabilityChangeRef.current(capabilitiesContent.capabilities[index].id);
           },
@@ -89,9 +89,9 @@ export function CapabilityList({ activeCapability, onCapabilityChange }: Capabil
       {capabilitiesContent.capabilities.map((capability) => (
         <button
           key={capability.id}
-          className="capability-item text-left font-medium transition-all duration-200 select-none"
+          className="capability-item text-left font-medium transition-all duration-200 select-none hover:text-[#ca7a3a]"
           style={{
-            color: activeCapability === capability.id ? "#ca7a3a" : "#444",
+            color: activeCapability === capability.id ? "#ca7a3a" : "#666666",
             fontSize: "clamp(26px, 3.2vw, 64px)",
             lineHeight: 1.18,
             padding: "2px 0",

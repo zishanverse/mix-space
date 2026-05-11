@@ -7,25 +7,29 @@ import { navbarContent, type SectionInfo } from "@/content/navbar";
 // Logo SVG Component
 function LogoMark() {
   return (
-    <div className="relative h-12 flex items-center group">
+    <div className="grid items-center group h-12 pointer-events-auto">
       {/* Primary White Logo */}
-      <Image
-        src="/assets/logo/Coder-express-logo-white.png"
-        alt="Coders Express"
-        width={1981}
-        height={675}
-        className="h-12 w-auto object-contain py-1 transition-opacity duration-300 opacity-100 group-hover:opacity-0"
-        priority
-      />
-      {/* Hover Social Logo */}
-      <Image
-        src="/assets/logo/Coder express social .png"
-        alt="Coders Express Hover"
-        width={1981}
-        height={675}
-        className="absolute inset-0 h-12 w-auto object-contain py-1 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-        priority
-      />
+      <div className="col-start-1 row-start-1 flex items-center justify-center">
+        <Image
+          src="/assets/logo/Coder-express-logo-white.png"
+          alt="Coders Express"
+          width={1981}
+          height={675}
+          className="h-12 w-auto object-contain py-1 transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+          priority
+        />
+      </div>
+      {/* Hover Orange Logo */}
+      <div className="col-start-1 row-start-1 flex items-center justify-center">
+        <Image
+          src="/assets/logo/Coder express logo orange.png"
+          alt="Coders Express Hover"
+          width={1697}
+          height={516}
+          className="h-12 w-auto object-contain py-1 transition-opacity duration-300 opacity-0 group-hover:opacity-100 scale-[0.8]"
+          priority
+        />
+      </div>
     </div>
   );
 }
@@ -117,11 +121,11 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
         className={`fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-[border-color] duration-300 ${hasScrolled ? "border-b border-white/8" : ""
           }`}
       >
-        <div className="relative mx-auto h-20 px-4 lg:px-12">
+        <div className="relative mx-auto h-20 px-6 lg:px-12 flex items-center justify-between w-full">
           {/* Logo - Left */}
           <a
             href={navbarContent.logo.href}
-            className="absolute left-6 top-1/2 -translate-y-1/2 flex items-center lg:left-12"
+            className="flex items-center relative z-10 shrink-0"
             aria-label={navbarContent.logo.ariaLabel}
           >
             <LogoMark />
@@ -133,7 +137,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-[15px] text-white transition-colors duration-200 hover:text-brand whitespace-nowrap"
+                className="text-[15px] text-white transition-colors duration-200 hover:text-[#ca7a3a] whitespace-nowrap"
                 onClick={handleNavClick}
               >
                 {link.label}
@@ -142,7 +146,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
           </nav>
 
           {/* Right side - CTA button and Mobile menu toggle */}
-          <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-3 lg:right-12">
+          <div className="flex items-center gap-3 relative z-10 shrink-0">
             {/* Work with us button - Hidden on mobile */}
             <a
               href={navbarContent.ctaButton.href}
@@ -214,7 +218,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
             <div key={link.label} className="w-full max-w-sm">
               <a
                 href={link.href}
-                className="block border-t border-white/10 py-6 text-center text-[28px] font-normal text-white hover:text-brand transition-colors"
+                className="block border-t border-white/10 py-6 text-center text-[28px] font-normal text-white hover:text-[#ca7a3a] transition-colors"
                 onClick={handleNavClick}
               >
                 {link.label}

@@ -50,7 +50,7 @@ export const textRevealContent: TextRevealContent = {
   text: {
     content: "We turn disruptive ideas into category defining companies.",
     ariaLabel: "We turn disruptive ideas into category defining companies",
-    initialColor: "#333",
+    initialColor: "#888",
     revealedColor: "#ffffff",
     highlightedWords: ["disruptive", "category", "defining"], // Words that highlight first/brighter
     highlightColor: "#ffffff",
@@ -78,8 +78,8 @@ export const textRevealContent: TextRevealContent = {
   },
 
   animation: {
-    scrollStart: "top 80%",
-    scrollEnd: "bottom 20%",
+    scrollStart: "top 92%",
+    scrollEnd: "bottom 50%",
     scrub: 1,
     logoDelay: 0.3,
     logoDuration: 0.8,

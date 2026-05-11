@@ -1,18 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CapabilityVisual } from "./CapabilityVisual";
 import { CapabilityList } from "./CapabilityList";
 import { capabilitiesContent } from "@/content/capabilities";
 import { SectionLabels } from "@/components/about-us/SectionLabels";
+import { gsap, ScrollTrigger } from "@/lib/gsap-plugins";
 
 export function CapabilitiesSection() {
   const [activeCapability, setActiveCapability] = useState(
     capabilitiesContent.visual.defaultCapability
   );
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
+    const trigger = ScrollTrigger.create({
+      trigger: element,
+      start: "top bottom", // Enter when top enters viewport bottom
+      end: "bottom top",   // Exit when bottom leaves viewport top
+      onToggle: (self) => setIsVisible(self.isActive),
+    });
+
+    return () => {
+      trigger.kill();
+    };
+  }, []);
 
   return (
-    <section id="capabilities" className="relative bg-black overflow-clip">
+    <section ref={sectionRef} id="capabilities" className="relative bg-black overflow-clip">
       {/* Header — full-width with side padding */}
       <div className="px-4 sm:px-6 lg:px-8 pt-8">
         <SectionLabels {...capabilitiesContent.label} />
@@ -39,8 +58,12 @@ export function CapabilitiesSection() {
           </div>
         </div>
 
-        {/* Mobile: image above list, not sticky */}
-        <div className="block lg:hidden w-[92%] mx-auto aspect-[4/3] overflow-hidden rounded-2xl">
+        {/* Mobile: Floating Video locked to bottom-right when section is active */}
+        <div
+          className={`fixed bottom-6 right-4 z-40 w-44 sm:w-52 aspect-[4/3] overflow-hidden rounded-xl shadow-2xl border border-white/20 transition-all duration-500 transform lg:hidden ${
+            isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95 pointer-events-none"
+          }`}
+        >
           <CapabilityVisual activeCapability={activeCapability} />
         </div>
 
