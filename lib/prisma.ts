@@ -1,21 +1,22 @@
-import "dotenv/config";
+import { PrismaClient } from '@prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../generated/prisma/client'
+import pg from 'pg'
+import "dotenv/config";
 
-const connectionString = `${process.env.DATABASE_URL}`
+const connectionString = process.env.DATABASE_URL;
 
-// Safe Next.js instantiation prevents multiple client spins in development
 const prismaClientSingleton = () => {
-  const adapter = new PrismaPg({ connectionString })
-  return new PrismaClient({ adapter })
+  const pool = new pg.Pool({ connectionString });
+  const adapter = new PrismaPg(pool);
+  return new PrismaClient({ adapter });
 }
 
 declare global {
-  var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>
+  var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>;
 }
 
-const prisma = globalThis.prismaGlobal ?? prismaClientSingleton()
+const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
 
-export { prisma }
+export { prisma };
 
-if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma
+if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma;
