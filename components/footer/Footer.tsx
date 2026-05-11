@@ -18,7 +18,7 @@ export function Footer() {
             placeholder="Email address"
             className="bg-[#141414] border border-transparent focus:border-white/10 rounded-full px-6 py-4 text-white text-lg placeholder:text-[#666] outline-none w-full md:w-[340px] transition-all"
           />
-          <button className="bg-white text-black w-full sm:w-auto font-medium px-10 py-4 rounded-full hover:bg-brand hover:text-white transition-colors text-lg">
+          <button className="bg-transparent border border-white text-white w-full sm:w-auto font-medium px-10 py-4 rounded-full hover:bg-white hover:text-black transition-colors text-lg">
             Submit
           </button>
         </div>
@@ -36,13 +36,10 @@ export function Footer() {
 
         {/* Left: Copyright */}
         <div className="mb-4 md:mb-0 normal-case text-[13px]">
-          © 2016 — 2025
+          © 2019 — 2026
         </div>
 
-        {/* Center: Locations */}
-        <div className="flex items-center gap-3 mb-4 md:mb-0 text-[11px] tracking-[0.15em]">
-          LONDON <span className="opacity-40">—</span> DUBAI
-        </div>
+
 
         {/* Right: Social Links */}
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-[11px] tracking-[0.15em]">

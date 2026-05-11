@@ -27,7 +27,7 @@ export const navbarContent = {
     { label: "Work", href: "/#recent-work" },
     { label: "Studio", href: "/#capabilities" },
     { label: "Ventures", href: "/#signature-engagements" },
-    { label: "News", href: "/#news" },
+    { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "/contact" },
   ] as NavItem[],
 
@@ -46,7 +46,7 @@ export const navbarContent = {
     { index: "[03]", label: "RECENT WORK", id: "recent-work" },
     { index: "[04]", label: "SIGNATURE ENGAGEMENTS", id: "signature-engagements" },
     { index: "[05]", label: "TESTIMONIALS", id: "testimonials" },
-    { index: "[06]", label: "NEWS", id: "news" },
+    // { index: "[06]", label: "NEWS", id: "news" },
   ] as SectionInfo[],
 
   // Scroll behavior
