@@ -18,7 +18,7 @@ export function Footer() {
             placeholder="Email address"
             className="bg-[#141414] border border-transparent focus:border-white/10 rounded-full px-6 py-4 text-white text-lg placeholder:text-[#666] outline-none w-full md:w-[340px] transition-all"
           />
-          <button className="bg-white text-black w-full sm:w-auto font-medium px-10 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg">
+          <button className="bg-white text-black w-full sm:w-auto font-medium px-10 py-4 rounded-full hover:bg-brand hover:text-white transition-colors text-lg">
             Submit
           </button>
         </div>
@@ -46,24 +46,24 @@ export function Footer() {
 
         {/* Right: Social Links */}
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-[11px] tracking-[0.15em]">
-          <a href="mailto:connect@codersexpress.com" className="flex items-center gap-2 hover:text-white transition-colors group">
-            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-white transition-colors"></div>
+          <a href="mailto:connect@codersexpress.com" className="flex items-center gap-2 hover:text-brand transition-colors group">
+            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-brand transition-colors"></div>
             MAIL
           </a>
-          <a href="https://www.instagram.com/codersexpress?igsh=aWQ0enhiYTM3c2ow&utm_source=qr" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors group">
-            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-white transition-colors"></div>
+          <a href="https://www.instagram.com/codersexpress?igsh=aWQ0enhiYTM3c2ow&utm_source=qr" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-brand transition-colors group">
+            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-brand transition-colors"></div>
             INSTAGRAM
           </a>
-          <a href="https://www.facebook.com/share/1BTfUsiFZt/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors group">
-            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-white transition-colors"></div>
+          <a href="https://www.facebook.com/share/1BTfUsiFZt/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-brand transition-colors group">
+            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-brand transition-colors"></div>
             FACEBOOK
           </a>
-          <a href="https://www.linkedin.com/company/codersexpress/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors group">
-            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-white transition-colors"></div>
+          <a href="https://www.linkedin.com/company/codersexpress/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-brand transition-colors group">
+            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-brand transition-colors"></div>
             LINKEDIN
           </a>
-          <a href="https://wa.me/message/HHILA74EGXT4K1" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors group">
-            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-white transition-colors"></div>
+          <a href="https://wa.me/message/HHILA74EGXT4K1" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-brand transition-colors group">
+            <div className="w-1.5 h-1.5 rounded-full border border-[#555] group-hover:border-brand transition-colors"></div>
             WHATSAPP
           </a>
         </div>

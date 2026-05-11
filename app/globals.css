@@ -5,6 +5,7 @@
   --foreground: #ffffff;
   --muted: #444444;
   --accent: #5B21D4;
+  --brand: #ca7a3a;
 }
 
 @theme inline {
@@ -12,6 +13,7 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-brand: var(--brand);
 }
 
 * {

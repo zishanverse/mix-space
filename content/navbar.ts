@@ -18,23 +18,23 @@ export const navbarContent = {
   // Logo configuration
   logo: {
     name: "CODERS EXPRESS",
-    href: "#top",
+    href: "/",
     ariaLabel: "CODERS EXPRESS - Home",
   },
 
   // Navigation links
   navLinks: [
-    { label: "Work", href: "#work" },
-    { label: "Studio", href: "#studio" },
-    { label: "Ventures", href: "#ventures" },
-    { label: "News", href: "#news" },
-    { label: "Contact", href: "#contact" },
+    { label: "Work", href: "/#recent-work" },
+    { label: "Studio", href: "/#capabilities" },
+    { label: "Ventures", href: "/#signature-engagements" },
+    { label: "News", href: "/#news" },
+    { label: "Contact", href: "/contact" },
   ] as NavItem[],
 
   // CTA button
   ctaButton: {
     label: "Work with us",
-    href: "#contact",
+    href: "/contact",
     ariaLabel: "Work with us - Contact us",
     icon: "chat", // chat icon
   },

@@ -1,41 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { navbarContent, type SectionInfo } from "@/content/navbar";
 
 // Logo SVG Component
 function LogoMark() {
   return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 48 48"
-      className="h-10 w-10"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        x="2.5"
-        y="2.5"
-        width="43"
-        height="43"
-        rx="4"
-        fill="#000"
-        stroke="rgba(255,255,255,0.28)"
-      />
-      <text
-        x="50%"
-        y="50%"
-        dominantBaseline="central"
-        textAnchor="middle"
-        fill="#fff"
-        fontSize="16"
-        fontWeight="bold"
-        fontFamily="sans-serif"
-        letterSpacing="1"
-      >
-        CE
-      </text>
-    </svg>
+    <Image
+      src="/assets/logo/Coder-express-logo-white.png"
+      alt="Coders Express"
+      width={1981}
+      height={675}
+      className="h-12 w-auto object-contain py-1"
+      priority
+    />
   );
 }
 
@@ -123,9 +102,8 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
     <>
       {/* Main Navbar */}
       <header
-        className={`fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-[border-color] duration-300 ${
-          hasScrolled ? "border-b border-white/8" : ""
-        }`}
+        className={`fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-[border-color] duration-300 ${hasScrolled ? "border-b border-white/8" : ""
+          }`}
       >
         <div className="relative mx-auto h-20 px-4 lg:px-12">
           {/* Logo - Left */}
@@ -143,7 +121,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-[15px] text-white transition-opacity duration-200 hover:opacity-60 whitespace-nowrap"
+                className="text-[15px] text-white transition-colors duration-200 hover:text-brand whitespace-nowrap"
                 onClick={handleNavClick}
               >
                 {link.label}
@@ -156,7 +134,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
             {/* Work with us button - Hidden on mobile */}
             <a
               href={navbarContent.ctaButton.href}
-              className="hidden sm:inline-flex items-center gap-3 rounded-full border border-white/30 bg-[#171717] px-5 py-3 text-[15px] text-white transition-colors duration-200 hover:bg-white hover:text-black"
+              className="hidden sm:inline-flex items-center gap-3 rounded-full border border-white/30 bg-[#171717] px-5 py-3 text-[15px] text-white transition-colors duration-200 hover:bg-brand hover:border-brand hover:text-white"
               aria-label={navbarContent.ctaButton.ariaLabel}
               onClick={handleNavClick}
             >
@@ -166,7 +144,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
 
             {/* Mobile Menu button - Text "Menu" instead of hamburger */}
             <button
-              className="sm:hidden flex items-center justify-center rounded-full border border-white/30 bg-[#171717] px-4 h-10 text-[15px] text-white hover:bg-white hover:text-black transition-colors"
+              className="sm:hidden flex items-center justify-center rounded-full border border-white/30 bg-[#171717] px-4 h-10 text-[15px] text-white hover:bg-brand hover:border-brand hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? navbarContent.mobile.closeLabel : navbarContent.mobile.menuLabel}
             >
@@ -184,13 +162,12 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
       </header>
 
       {/* Section indicators (Desktop) */}
-      
+
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-50 bg-black transition-opacity duration-300 md:hidden ${
-          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-50 bg-black transition-opacity duration-300 md:hidden ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       >
         {/* Mobile menu header */}
         <div className="flex h-20 items-center justify-between px-6">
@@ -202,7 +179,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
             {/* Chat icon button */}
             <a
               href={navbarContent.ctaButton.href}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-[#171717] text-white hover:bg-white hover:text-black transition-colors"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-[#171717] text-white hover:bg-brand hover:border-brand hover:text-white transition-colors"
               aria-label={navbarContent.ctaButton.ariaLabel}
               onClick={handleNavClick}
             >
@@ -211,7 +188,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
 
             {/* Close button */}
             <button
-              className="flex h-10 items-center justify-center rounded-full border border-white/20 bg-[#222] px-4 text-[15px] text-white hover:bg-white hover:text-black transition-colors"
+              className="flex h-10 items-center justify-center rounded-full border border-white/20 bg-[#222] px-4 text-[15px] text-white hover:bg-brand hover:border-brand hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Close
@@ -225,7 +202,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
             <div key={link.label} className="w-full max-w-sm">
               <a
                 href={link.href}
-                className="block border-t border-white/10 py-6 text-center text-[28px] font-normal text-white hover:opacity-60 transition-opacity"
+                className="block border-t border-white/10 py-6 text-center text-[28px] font-normal text-white hover:text-brand transition-colors"
                 onClick={handleNavClick}
               >
                 {link.label}

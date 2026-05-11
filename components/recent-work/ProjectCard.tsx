@@ -114,7 +114,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         className="absolute bottom-0 left-0 right-0 p-5 z-10 flex items-end justify-between transition-transform duration-500"
         style={{ transform: hovered ? "translateY(0)" : "translateY(8px)", opacity: hovered ? 1 : 0, transition: "transform 0.4s ease, opacity 0.4s ease" }}
       >
-        <span className="text-white text-base font-medium">{project.name}</span>
+        <span className="text-white text-base font-medium transition-colors group-hover:text-brand">{project.name}</span>
         <span className="text-white/50 text-xs">{project.year}</span>
       </div>
 

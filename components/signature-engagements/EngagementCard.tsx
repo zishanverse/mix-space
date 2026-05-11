@@ -61,8 +61,8 @@ export function EngagementCard({ engagement, index }: EngagementCardProps) {
         )}
 
         {/* Hover "Inquire" Circle */}
-        <div className="absolute inset-0 m-auto w-24 h-24 bg-white rounded-full flex items-center justify-center pointer-events-none opacity-0 scale-50 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100">
-          <span className="text-black font-medium text-sm">Inquire</span>
+        <div className="absolute inset-0 m-auto w-24 h-24 bg-brand rounded-full flex items-center justify-center pointer-events-none opacity-0 scale-50 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100">
+          <span className="text-white font-medium text-sm">Inquire</span>
         </div>
       </div>
 

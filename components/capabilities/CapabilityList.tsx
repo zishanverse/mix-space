@@ -91,7 +91,7 @@ export function CapabilityList({ activeCapability, onCapabilityChange }: Capabil
           key={capability.id}
           className="capability-item text-left font-medium transition-all duration-200 select-none"
           style={{
-            color: activeCapability === capability.id ? "#ffffff" : "#444",
+            color: activeCapability === capability.id ? "#ca7a3a" : "#444",
             fontSize: "clamp(26px, 3.2vw, 64px)",
             lineHeight: 1.18,
             padding: "2px 0",
