@@ -7,14 +7,26 @@ import { navbarContent, type SectionInfo } from "@/content/navbar";
 // Logo SVG Component
 function LogoMark() {
   return (
-    <Image
-      src="/assets/logo/Coder-express-logo-white.png"
-      alt="Coders Express"
-      width={1981}
-      height={675}
-      className="h-12 w-auto object-contain py-1"
-      priority
-    />
+    <div className="relative h-12 flex items-center group">
+      {/* Primary White Logo */}
+      <Image
+        src="/assets/logo/Coder-express-logo-white.png"
+        alt="Coders Express"
+        width={1981}
+        height={675}
+        className="h-12 w-auto object-contain py-1 transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+        priority
+      />
+      {/* Hover Social Logo */}
+      <Image
+        src="/assets/logo/Coder express social .png"
+        alt="Coders Express Hover"
+        width={1981}
+        height={675}
+        className="absolute inset-0 h-12 w-auto object-contain py-1 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+        priority
+      />
+    </div>
   );
 }
 
