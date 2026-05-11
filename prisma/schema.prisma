@@ -1,0 +1,22 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  output          = "../generated/prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ContactSubmission {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  type         String   // "project-enquiry" | "careers" | "speak-to-team"
+  reason       String?
+  companyName  String?
+  companyStage String?
+  hearAboutUs  String?
+  message      String
+  createdAt    DateTime @default(now())
+}

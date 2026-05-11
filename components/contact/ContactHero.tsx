@@ -43,7 +43,7 @@ export function ContactHero() {
       hidden: { color: "#2a2a2a" },
       visible: {
         color: finalColor,
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" as const },
       },
     };
   };

@@ -7,6 +7,7 @@ interface BaseInputProps {
   required?: boolean;
   placeholder?: string;
   type?: string;
+  name?: string;
 }
 
 function FormFieldWrapper({ label, required, isFocused, children }: any) {
@@ -25,14 +26,16 @@ function FormFieldWrapper({ label, required, isFocused, children }: any) {
   );
 }
 
-export function TextInput({ label, required, placeholder, type = "text" }: BaseInputProps) {
+export function TextInput({ label, required, placeholder, type = "text", name }: BaseInputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
     <FormFieldWrapper label={label} required={required} isFocused={isFocused}>
       <input
         type={type}
+        name={name}
         placeholder={placeholder}
+        required={required}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         className="bg-transparent w-full text-base text-white border-b border-white/20 py-3 focus:border-white/70 transition-colors outline-none placeholder:text-[#444] font-normal"
@@ -41,14 +44,16 @@ export function TextInput({ label, required, placeholder, type = "text" }: BaseI
   );
 }
 
-export function TextArea({ label, required, placeholder }: BaseInputProps) {
+export function TextArea({ label, required, placeholder, name }: BaseInputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
     <FormFieldWrapper label={label} required={required} isFocused={isFocused}>
       <div className="relative w-full">
         <textarea
+          name={name}
           placeholder={placeholder}
+          required={required}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           rows={4}
@@ -62,7 +67,7 @@ export function TextArea({ label, required, placeholder }: BaseInputProps) {
   );
 }
 
-export function CustomSelect({ label, required, options, placeholder }: BaseInputProps & { options: string[] }) {
+export function CustomSelect({ label, required, options, placeholder, name }: BaseInputProps & { options: string[] }) {
   const [isFocused, setIsFocused] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
@@ -82,6 +87,9 @@ export function CustomSelect({ label, required, options, placeholder }: BaseInpu
   return (
     <FormFieldWrapper label={label} required={required} isFocused={isFocused || isOpen}>
       <div ref={containerRef} className="relative w-full">
+        {/* Hidden input stores the select state for standard native form retrieval */}
+        <input type="hidden" name={name} value={selectedValue} required={required} />
+        
         <div
           onClick={() => {
             setIsOpen(!isOpen);
@@ -129,16 +137,72 @@ export function CustomSelect({ label, required, options, placeholder }: BaseInpu
 const FormDivider = () => <div className="h-[1px] w-full bg-white/8 my-2" />;
 
 export function ProjectEnquiryForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+    
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      type: "project-enquiry",
+      name: formData.get("name"),
+      email: formData.get("email"),
+      reason: formData.get("reason"),
+      companyName: formData.get("companyName"),
+      companyStage: formData.get("companyStage"),
+      hearAboutUs: formData.get("hearAboutUs"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setIsSuccess(true);
+      } else {
+        const data = await res.json();
+        setError(data.error || "Something went wrong.");
+      }
+    } catch (err) {
+      setError("Failed to connect to server.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  if (isSuccess) {
+    return (
+      <div className="h-full flex flex-col items-center justify-center text-center py-20 animate-in fade-in zoom-in-95 duration-500">
+        <div className="w-16 h-16 bg-brand/20 rounded-full flex items-center justify-center mb-6">
+          <svg className="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 className="text-2xl font-medium text-white mb-3">Submission Sent</h3>
+        <p className="text-white/60">Thank you. Our team will review your details and reach out shortly.</p>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-8">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <TextInput label="Name" required placeholder="John Smith" />
-        <TextInput label="Email" type="email" required placeholder="Enter your email" />
+        <TextInput label="Name" name="name" required placeholder="John Smith" />
+        <TextInput label="Email" name="email" type="email" required placeholder="Enter your email" />
       </div>
       <FormDivider />
       
       <CustomSelect
         label="Reason to contact?"
+        name="reason"
         required
         placeholder="Select a reason"
         options={["New Project", "Partnership", "Careers", "General Enquiry", "Other"]}
@@ -146,9 +210,10 @@ export function ProjectEnquiryForm() {
       <FormDivider />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <TextInput label="Company name" required placeholder="Enter your company" />
+        <TextInput label="Company name" name="companyName" required placeholder="Enter your company" />
         <CustomSelect 
           label="What stage is your company?" 
+          name="companyStage"
           required 
           placeholder="Select stage"
           options={["Pre-Seed", "Seed", "Series A", "Series B+", "Established", "Other"]} 
@@ -156,17 +221,20 @@ export function ProjectEnquiryForm() {
       </div>
       <FormDivider />
       
-      <TextInput label="How did you hear about us?" required placeholder="Enter your response" />
+      <TextInput label="How did you hear about us?" name="hearAboutUs" required placeholder="Enter your response" />
       <FormDivider />
       
-      <TextArea label="Message" placeholder="Leave a message" />
+      <TextArea label="Message" name="message" required placeholder="Leave a message" />
       
+      {error && <div className="text-red-400 text-sm -mt-4">{error}</div>}
+
       <div className="pt-4">
         <button
           type="submit"
-          className="rounded-full bg-[#2a2a2a] text-white text-base font-medium px-9 py-3.5 border border-white/15 hover:bg-brand hover:border-brand transition-all duration-300 w-fit cursor-pointer"
+          disabled={isSubmitting}
+          className="rounded-full bg-[#2a2a2a] text-white text-base font-medium px-9 py-3.5 border border-white/15 hover:bg-brand hover:border-brand transition-all duration-300 w-fit cursor-pointer disabled:opacity-50"
         >
-          Submit
+          {isSubmitting ? "Sending..." : "Submit"}
         </button>
       </div>
     </form>
@@ -174,20 +242,75 @@ export function ProjectEnquiryForm() {
 }
 
 export function MinimalForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+    
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      type: "minimal-enquiry",
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setIsSuccess(true);
+      } else {
+        const data = await res.json();
+        setError(data.error || "Something went wrong.");
+      }
+    } catch (err) {
+      setError("Failed to connect.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  if (isSuccess) {
+    return (
+      <div className="h-full flex flex-col items-center justify-center text-center py-20 animate-in fade-in duration-500">
+        <div className="w-16 h-16 bg-brand/20 rounded-full flex items-center justify-center mb-6">
+          <svg className="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 className="text-2xl font-medium text-white mb-3">Message Received</h3>
+        <p className="text-white/60">We'll be in touch shortly!</p>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-8">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <TextInput label="Name" required placeholder="John Smith" />
-        <TextInput label="Email" type="email" required placeholder="Enter your email" />
+        <TextInput label="Name" name="name" required placeholder="John Smith" />
+        <TextInput label="Email" name="email" type="email" required placeholder="Enter your email" />
       </div>
       <FormDivider />
-      <TextArea label="Message" placeholder="Leave a message" />
+      <TextArea label="Message" name="message" required placeholder="Leave a message" />
+      
+      {error && <div className="text-red-400 text-sm -mt-4">{error}</div>}
+
       <div className="pt-4">
         <button
           type="submit"
-          className="rounded-full bg-[#2a2a2a] text-white text-base font-medium px-9 py-3.5 border border-white/15 hover:bg-brand hover:border-brand transition-all duration-300 w-fit cursor-pointer"
+          disabled={isSubmitting}
+          className="rounded-full bg-[#2a2a2a] text-white text-base font-medium px-9 py-3.5 border border-white/15 hover:bg-brand hover:border-brand transition-all duration-300 w-fit cursor-pointer disabled:opacity-50"
         >
-          Submit
+          {isSubmitting ? "Sending..." : "Submit"}
         </button>
       </div>
     </form>
