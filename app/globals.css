@@ -6,6 +6,20 @@
   --muted: #444444;
   --accent: #5B21D4;
   --brand: #ca7a3a;
+  --color-bg-secondary: #111111;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #999999;
+  --color-text-muted: #555555;
+  --color-border: rgba(255,255,255,0.10);
+  --color-border-hover: rgba(255,255,255,0.25);
+  --color-accent-warm: #e8e6df;
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'DM Sans', var(--font-inter), 'Helvetica Neue', sans-serif;
+  --transition-fast: 200ms ease;
+  --transition-base: 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-slow: 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  --space-xs: 8px; --space-sm: 16px; --space-md: 24px;
+  --space-lg: 48px; --space-xl: 80px; --space-2xl: 120px; --space-3xl: 180px;
 }
 
 @theme inline {
@@ -222,3 +236,101 @@ a, button, input, select, textarea {
 .transition-transform-300 {
   transition: transform 0.3s ease;
 }
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 1px;
+  background: #ffffff;
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
+/* Section containers */
+.section-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 480px) {
+  .section-container { padding: 0 20px; }
+}
+
+/* Section divider */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* Section number label pattern — [01] used across all sections */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 48px;
+}
+
+.section-label span { color: var(--color-text-secondary); }
+
+/* Global scroll reveal — base state */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom cursor */
+#cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+#cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+body:has(a:hover) #cursor-ring,
+body:has(button:hover) #cursor-ring {
+  width: 56px; height: 56px;
+  border-color: rgba(255,255,255,0.8);
+}
+
+@media (hover: none) {
+  #cursor-dot, #cursor-ring { display: none; }
+}
+
+/* Override for slow marquee variant */
+.marquee-slow .marquee-left  { animation-duration: 60s; }
+.marquee-slow .marquee-right { animation-duration: 60s; }
+

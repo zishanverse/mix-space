@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { capabilitiesContent } from "@/content/capabilities";
+
+const serviceOptions = capabilitiesContent.capabilities.map(c => c.name);
 
 interface BaseInputProps {
   label: string;
@@ -205,7 +208,7 @@ export function ProjectEnquiryForm() {
         name="reason"
         required
         placeholder="Select a reason"
-        options={["New Project", "Partnership", "Careers", "General Enquiry", "Other"]}
+        options={serviceOptions}
       />
       <FormDivider />
       
@@ -232,7 +235,7 @@ export function ProjectEnquiryForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="rounded-full bg-[#2a2a2a] text-white text-base font-medium px-9 py-3.5 border border-white/15 hover:bg-brand hover:border-brand transition-all duration-300 w-fit cursor-pointer disabled:opacity-50"
+          className="rounded-full bg-black text-white text-base font-medium px-9 py-3.5 border border-transparent hover:bg-white hover:text-black transition-all duration-300 w-fit cursor-pointer disabled:opacity-50"
         >
           {isSubmitting ? "Sending..." : "Submit"}
         </button>
@@ -308,7 +311,7 @@ export function MinimalForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="rounded-full bg-[#2a2a2a] text-white text-base font-medium px-9 py-3.5 border border-white/15 hover:bg-brand hover:border-brand transition-all duration-300 w-fit cursor-pointer disabled:opacity-50"
+          className="rounded-full bg-black text-white text-base font-medium px-9 py-3.5 border border-transparent hover:bg-white hover:text-black transition-all duration-300 w-fit cursor-pointer disabled:opacity-50"
         >
           {isSubmitting ? "Sending..." : "Submit"}
         </button>

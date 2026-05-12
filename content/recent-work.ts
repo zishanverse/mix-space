@@ -30,13 +30,13 @@ export const recentWorkContent: RecentWorkContent = {
 
   headline: {
     segments: [
-      { text: "We build transformative brands through ", highlight: false },
-      { text: "tailored strategies", highlight: true },
+      { text: "We craft impactful digital experiences through ", highlight: false },
+      { text: "strategic marketing", highlight: true },
       { text: ", ", highlight: false },
-      { text: "visual experimentation", highlight: true },
+      { text: "visual storytelling", highlight: true },
       { text: " and ", highlight: false },
-      { text: "user experience design", highlight: true },
-      { text: " by blending storytelling, technology & design.", highlight: false },
+      { text: "performance- driven design", highlight: true },
+      { text: " by blending creativity, technology & brand innovation.", highlight: false },
     ],
   },
 

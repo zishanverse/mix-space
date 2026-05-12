@@ -29,45 +29,45 @@ export function RecentWorkSection() {
       />
       <div className="pt-20 ">
 
-      {/* Highlighted headline — centred, large */}
-      <div className="mx-auto max-w-7xl text-center mb-16 lg:mb-20">
-        <HighlightText
-          segments={headline.segments}
-          className="text-[clamp(20px,2.4vw,48px)]"
+        {/* Highlighted headline — centred, large */}
+        <div className="mx-auto max-w-7xl text-center mb-16 lg:mb-20">
+          <HighlightText
+            segments={headline.segments}
+            className="text-[clamp(20px,2.4vw,48px)]"
           />
-      </div>
-
-      {/* Project grid */}
-      <div className="mx-auto max-w-[92%]  flex flex-col gap-4">
-
-        {/* Row 1 — two equal columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {row1.map((p, i) => (
-            <div key={p.id} className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
-              <ProjectCard project={p} index={i} />
-            </div>
-          ))}
         </div>
 
-        {/* Row 2 — wide single card */}
-        {row2.map((p, i) => (
-          <div key={p.id} className="relative w-full aspect-video md:aspect-[21/9]">
-            <ProjectCard project={p} index={i + 2} />
-          </div>
-        ))}
+        {/* Project grid */}
+        <div className="mx-auto max-w-[92%]  flex flex-col gap-4">
 
-        {/* Row 3 — two equal columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {row3.map((p, i) => (
-            <div key={p.id} className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
-              <ProjectCard project={p} index={i + 3} />
+          {/* Row 1 — two equal columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {row1.map((p, i) => (
+              <div key={p.id} className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
+                <ProjectCard project={p} index={i} />
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2 — wide single card */}
+          {row2.map((p, i) => (
+            <div key={p.id} className="relative w-full aspect-video md:aspect-[21/9]">
+              <ProjectCard project={p} index={i + 2} />
             </div>
           ))}
-        </div>
 
-      </div>
+          {/* Row 3 — two equal columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {row3.map((p, i) => (
+              <div key={p.id} className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
+                <ProjectCard project={p} index={i + 3} />
+              </div>
+            ))}
           </div>
-                <ScrollMarquee text="From Pre-Seed to IPO" />
+
+        </div>
+      </div>
+      <ScrollMarquee text="From scrolling to stopping." />
 
     </section>
   );

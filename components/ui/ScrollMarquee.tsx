@@ -14,7 +14,7 @@ interface ScrollMarqueeProps {
  * strictly based on scroll position (to and fro). It does not loop or auto-play.
  */
 export function ScrollMarquee({
-  text = "From Pre-Seed to IPO",
+  text = "From scrolling to stopping.",
   className = "",
 }: ScrollMarqueeProps) {
   const containerRef = useRef<HTMLDivElement>(null);

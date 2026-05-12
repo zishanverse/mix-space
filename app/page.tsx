@@ -6,10 +6,11 @@ import { AboutUsSection } from "@/components/about-us";
 import { CapabilitiesSection } from "@/components/capabilities";
 import { RecentWorkSection } from "@/components/recent-work";
 import { SignatureEngagementsSection } from "@/components/signature-engagements";
-// import { InvestorsSection } from "@/components/investors";
+import { InvestorsSection } from "@/components/investors";
 import { TestimonialsSection } from "@/components/testimonials";
 //import { ResearchSection } from "@/components/research";
 import { FAQSection } from "@/components/faq";
+import { BookCallSection } from "@/components/book-call";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -40,7 +41,7 @@ export default function Home() {
       <SignatureEngagementsSection />
 
       {/* Investors Marquee Section */}
-      {/* <InvestorsSection /> */}
+      <InvestorsSection />
 
       {/* Founders Testimonials Slider */}
       <TestimonialsSection />
@@ -50,6 +51,9 @@ export default function Home() {
 
       {/* FAQ Section */}
       <FAQSection />
+
+      {/* Call to Action */}
+      <BookCallSection />
 
       {/* Site Footer */}
       <Footer />

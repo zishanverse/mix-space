@@ -45,14 +45,14 @@ export interface HeroContent {
 
 export const heroContent: HeroContent = {
   headline: {
-    line1: "Creating brands",
-    line2: "of the future",
-    ariaLabel: "Creating brands of the future",
+    line1: "Powering Businesses",
+    line2: "With Digital Innovation",
+    ariaLabel: "Powering Businesses With Digital Innovation",
   },
 
   description: {
-    text: "We are a global branding & design studio, working with founders to create brands, products & digital experiences for the new internet.",
-    ariaLabel: "We are a global branding and design studio, working with founders to create brands, products and digital experiences for the new internet",
+    text: "We build digital experiences that drive growth, visibility, and long-term success. From strategy to execution, we help businesses scale with powerful marketing, creative storytelling, and performance-driven solutions.",
+    ariaLabel: "We build digital experiences that drive growth, visibility, and long-term success. From strategy to execution, we help businesses scale with powerful marketing, creative storytelling, and performance-driven solutions.",
   },
 
   ctaButton: {

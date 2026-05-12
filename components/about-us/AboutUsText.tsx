@@ -39,7 +39,7 @@ export function AboutUsText({
         const isHighlighted = wordsToHighlight.includes(word);
         // Add space after each word except the last one
         const spacing = index < words.length - 1 ? ' ' : '';
-        return `<span class="word" data-highlight="${isHighlighted}" style="color: ${aboutUsContent.text.initialColor}; display: inline-block; margin-right: 0.25em;">${word}</span>${spacing}`;
+        return `<span class="word" data-highlight="${isHighlighted}" style="color: ${aboutUsContent.text.initialColor}; display: inline-block;">${word}</span>${spacing}`;
       })
       .join("");
 
@@ -81,7 +81,7 @@ export function AboutUsText({
   return (
     <div
       ref={textRef}
-      className={`${className} text-[clamp(28px,4.5vw,52px)] font-normal leading-[1.2] overflow-x-hidden`}
+      className={`${className} text-[clamp(20px,2.4vw,48px)] font-normal leading-[1.3] overflow-x-hidden`}
       style={{
         maxWidth: `max-${maxWidth}`,
         margin: "0 auto",

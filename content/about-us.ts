@@ -61,8 +61,8 @@ export const aboutUsContent: AboutUsContent = {
   },
 
   text: {
-    content: "We help businesses grow online with our professional services through expert social media, SEO, web development, and digital ads and Influencer Marketing.",
-    ariaLabel: "We help businesses grow online with our professional services through expert social media, SEO, web development, and digital ads and Influencer Marketing.",
+    content: "From scaling startups to elevating established businesses since 2019, we create viral visibility, powerful brand positioning, and customer experiences that turn clicks into lifetime communities.",
+    ariaLabel: "From scaling startups to elevating established businesses since 2019, we create viral visibility, powerful brand positioning, and customer experiences that turn clicks into lifetime communities.",
     initialColor: "#222",
     revealedColor: "#ffffff",
     highlightedWords: ["grow", "online", "social", "media,", "SEO,", "web", "development,", "digital", "ads."],

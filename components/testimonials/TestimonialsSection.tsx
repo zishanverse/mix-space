@@ -74,9 +74,9 @@ export function TestimonialsSection() {
     <section className="bg-black py-32 border-t border-white/5 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
         <h2 className="text-white text-[clamp(48px,8vw,96px)] font-normal leading-[1.1] tracking-tight max-w-2xl">
-          Hear from founders
+          Hear From Our Team
         </h2>
-        
+
         {/* Indicator */}
         <div className="flex items-center gap-4 text-[#555] font-mono text-lg pb-4">
           <span className="text-white">{activeIndex}</span>
@@ -86,7 +86,7 @@ export function TestimonialsSection() {
       </div>
 
       {/* Draggable/Scrollable container */}
-      <div 
+      <div
         ref={scrollContainerRef}
         onScroll={handleScroll}
         className="flex gap-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar px-4 sm:px-6 lg:px-8 pb-12 cursor-grab active:cursor-grabbing"
@@ -94,10 +94,10 @@ export function TestimonialsSection() {
       >
         {/* Extra padding div for first item to align with container */}
         <div className="w-[1vw] md:w-[10vw] shrink-0" />
-        
+
         {testimonials.map((t) => (
-          <div 
-            key={t.id} 
+          <div
+            key={t.id}
             className="snap-center shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col justify-between min-h-[500px]"
           >
             {/* Top row: Avatar placeholder & Logo placeholder */}
@@ -105,11 +105,11 @@ export function TestimonialsSection() {
               <div className="w-20 h-20 bg-[#1a1a1a] rounded-full overflow-hidden grayscale relative">
                 {/* Avatar */}
                 {t.avatar && (
-                  <Image 
-                    src={t.avatar} 
-                    alt={t.name} 
-                    fill 
-                    className="object-cover" 
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    fill
+                    className="object-cover"
                   />
                 )}
               </div>
@@ -130,7 +130,7 @@ export function TestimonialsSection() {
             </div>
           </div>
         ))}
-        
+
         {/* Extra padding div for last item */}
         <div className="w-[5vw] md:w-[20vw] shrink-0" />
       </div>
