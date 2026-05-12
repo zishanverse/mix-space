@@ -7,7 +7,7 @@ export function HeroText() {
     <div className="mb-12 ml-0  overflow-hidden">
       {/* Line 1 */}
       <motion.h1
-        initial={{ opacity: 0, filter: "blur(12px)",}}
+        initial={{ opacity: 0, filter: "blur(12px)", }}
         animate={{ opacity: 1, filter: "blur(0px)", }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-[clamp(40px,10vw,72px)] font-normal leading-none text-white whitespace-nowrap"

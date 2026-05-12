@@ -118,7 +118,7 @@ export function Navbar({ sections = navbarContent.sections }: NavbarProps) {
     <>
       {/* Main Navbar */}
       <header
-        className={`fixed left-0 right-0 top-0 z-50 w-full bg-transparent transition-[border-color] duration-300 ${hasScrolled ? "border-b border-white/8" : ""
+        className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ${hasScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/8" : "bg-transparent"
           }`}
       >
         <div className="relative mx-auto h-20 px-6 lg:px-12 flex items-center justify-between w-full">

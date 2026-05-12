@@ -33,9 +33,9 @@ export const navbarContent = {
 
   // CTA button
   ctaButton: {
-    label: "Work with us",
+    label: "Get In Touch",
     href: "/contact",
-    ariaLabel: "Work with us - Contact us",
+    ariaLabel: "Get In Touch",
     icon: "chat", // chat icon
   },
 
