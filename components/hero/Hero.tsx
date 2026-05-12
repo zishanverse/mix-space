@@ -16,14 +16,14 @@ export function Hero() {
       <VideoBackground />
 
       {/* Content Container */}
-      <div className="relative flex justify-center items-center z-10 mx-auto h-screen w-full px-6 lg:px-12">
-        {/* Description text - Right side, absolute positioned */}
+      <div className="relative flex flex-col justify-center md:items-center z-10 mx-auto min-h-screen w-full px-6 lg:px-12 pt-32 pb-44 md:py-0">
+        {/* Description text */}
         <HeroDescription />
 
-        {/* Main Headline - Centered, two lines */}
+        {/* Main Headline */}
         <HeroText />
 
-        {/* Video Thumbnail - Bottom left */}
+        {/* Video Thumbnail */}
         <HeroThumbnail />
       </div>
 

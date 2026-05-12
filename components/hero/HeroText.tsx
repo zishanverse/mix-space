@@ -10,7 +10,7 @@ export function HeroText() {
         initial={{ opacity: 0, filter: "blur(12px)", }}
         animate={{ opacity: 1, filter: "blur(0px)", }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-[clamp(40px,10vw,72px)] font-normal leading-none text-white whitespace-nowrap"
+        className="text-[clamp(36px,9vw,72px)] font-normal leading-[1.1] text-white whitespace-normal md:whitespace-nowrap text-center md:text-left"
       >
         Creating brands
       </motion.h1>
@@ -21,12 +21,16 @@ export function HeroText() {
         animate={{ opacity: 1, filter: "blur(0px)", }}
         transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
         className="
-          text-[clamp(40px,10vw,72px)]
+          text-[clamp(36px,9vw,72px)]
           font-normal
-          leading-none
+          leading-[1.1]
           text-white
-          whitespace-nowrap
-          ml-10 md:ml-32 lg:ml-60
+          whitespace-normal
+          md:whitespace-nowrap
+          text-center
+          md:text-left
+          ml-0 md:ml-32 lg:ml-60
+          mt-2 md:mt-0
         "
       >
         of the future

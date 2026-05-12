@@ -9,7 +9,7 @@ export function HeroThumbnail() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: heroContent.animation.thumbnailDelay, duration: 0.6 }}
-      className="absolute bottom-20 left-4 lg:left-12 w-[184px] h-[144px] overflow-hidden rounded-xl border border-white/10 bg-[#1a1a1a]"
+      className="md:absolute relative md:bottom-20 bottom-0 md:left-12 left-0 mt-12 md:mt-0 w-[184px] h-[144px] overflow-hidden rounded-xl border border-white/10 bg-[#1a1a1a]"
     >
       {heroContent.video.thumbnailVideoSrc ? (
         <video
