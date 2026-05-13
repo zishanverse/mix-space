@@ -51,7 +51,7 @@ function Panel({
         position: "relative",
         borderRadius: "14px",
         overflow: "hidden",
-        minHeight: "340px",
+        minHeight: "440px",
         aspectRatio: "3/2",
         cursor: "pointer",
         opacity: 0,
@@ -235,13 +235,13 @@ export function StudioModel() {
       className="w-full"
       style={{
         backgroundColor: "var(--background)",
-        padding: "0 20px 20px 20px",
+        padding: "var(--space-xl, 80px) 40px var(--space-xl, 80px) 40px",
       }}
     >
       <div
         style={{
           display: "flex",
-          gap: "8px",
+          gap: "20px",
           width: "100%",
         }}
         className="flex-col md:flex-row"

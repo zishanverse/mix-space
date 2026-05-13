@@ -5,7 +5,7 @@ import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 
 const CARD_WIDTH = 400;
-const GAP = 3; // almost no gap — edge to edge feel
+const GAP = 8; // generous gap for spacing
 
 const STATS = [
   {
@@ -161,7 +161,7 @@ export function StudioResults() {
       className="w-full"
       style={{
         backgroundColor: "var(--background)",
-        padding: "var(--space-xl, 80px) 0",
+        padding: "var(--space-xl, 80px) 0 var(--space-2xl, 120px) 0",
         borderTop: "1px solid rgba(255,255,255,0.08)",
       }}
     >

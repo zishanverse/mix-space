@@ -8,3 +8,4 @@ export * from "./StudioResults";
 export * from "./StudioStatement";
 export * from "./StudioTeam";
 export * from "./StudioModel";
+export * from "./StudioFocus";
