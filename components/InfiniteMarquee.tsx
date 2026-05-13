@@ -21,7 +21,11 @@ export function InfiniteMarquee({
     <div className={`marquee-container overflow-hidden ${className}`}>
       <div
         className={`flex items-center gap-20 whitespace-nowrap ${animationClass}`}
-        style={{ animationDuration: `${speed}s` }}
+        style={{ 
+          animationDuration: `${speed}s`,
+          willChange: "transform",
+          transform: "translate3d(0, 0, 0)" // Force GPU rendering layer promotion
+        }}
       >
         {/* First set of items */}
         {items.map((item, index) => (

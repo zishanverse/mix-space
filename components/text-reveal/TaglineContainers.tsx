@@ -113,13 +113,15 @@ export function TaglineContainers() {
         opacity: 0, 
         y: 60, 
         scale: 0.95,
-        rotationX: 15 
+        rotationX: 15,
+        force3D: true
       },
       {
         opacity: 1,
         y: 0,
         scale: 1,
         rotationX: 0,
+        force3D: true,
         duration: textRevealContent.animation.containerDuration,
         stagger: 0.15,
         delay: textRevealContent.animation.containerDelay,

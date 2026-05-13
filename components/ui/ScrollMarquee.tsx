@@ -29,9 +29,10 @@ export function ScrollMarquee({
     // and as we scroll, we move it significantly to the left.
     const tween = gsap.fromTo(
       textEl,
-      { x: "30vw" }, // Start 30% viewport width to the right
+      { x: "30vw", force3D: true }, // Force GPU acceleration
       {
-        x: "-50vw", // Move to -50% viewport width to the left
+        x: "-50vw",
+        force3D: true,
         ease: "none",
         scrollTrigger: {
           trigger: container,

@@ -69,6 +69,7 @@ export function VideoBackground({
           loop
           muted
           playsInline
+          preload="auto" // Instruct browser to preload video data ASAP
           className="absolute inset-0 h-full w-full object-cover"
           style={{ opacity: isLoaded ? 1 : 0, transition: "opacity 0.5s ease-in-out" }}
         >
