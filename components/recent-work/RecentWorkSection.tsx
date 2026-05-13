@@ -56,14 +56,16 @@ export function RecentWorkSection() {
             </div>
           ))}
 
-          {/* Row 3 — two equal columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {row3.map((p, i) => (
-              <div key={p.id} className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
-                <ProjectCard project={p} index={i + 3} />
-              </div>
-            ))}
-          </div>
+          {/* Row 3 — two equal columns (only rendered if items exist) */}
+          {row3.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {row3.map((p, i) => (
+                <div key={p.id} className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
+                  <ProjectCard project={p} index={i + 3} />
+                </div>
+              ))}
+            </div>
+          )}
 
         </div>
       </div>

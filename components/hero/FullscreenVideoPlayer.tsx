@@ -171,9 +171,9 @@ export function FullscreenVideoPlayer({
                   initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
                   animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
                   exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-                  className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 z-30 px-6"
+                  className="absolute inset-0 flex flex-col items-center justify-start md:justify-center bg-black/75 z-30 px-6 py-20 overflow-y-auto scrollbar-none"
                 >
-                  <div className="w-full max-w-6xl text-center">
+                  <div className="w-full max-w-6xl text-center my-auto">
                     {/* Header Titles */}
                     <motion.div
                       initial={{ opacity: 0, y: -20 }}

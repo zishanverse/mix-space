@@ -78,12 +78,15 @@ export function AboutUsText({
     };
   }, [content, highlightedWords, enableHighlight]);
 
+  // Map Tailwind scale to actual CSS values safely
+  const resolvedMaxWidth = maxWidth === "4xl" ? "56rem" : maxWidth === "5xl" ? "64rem" : "100%";
+
   return (
     <div
       ref={textRef}
-      className={`${className} text-[clamp(20px,2.4vw,48px)] font-normal leading-[1.3] overflow-x-hidden`}
+      className={`${className} text-[clamp(20px,2.4vw,48px)] font-normal leading-[1.3] overflow-x-hidden w-full`}
       style={{
-        maxWidth: `max-${maxWidth}`,
+        maxWidth: resolvedMaxWidth,
         margin: "0 auto",
         color: aboutUsContent.text.initialColor,
       }}

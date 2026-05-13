@@ -6,7 +6,7 @@ export function Footer() {
       {/* Top row: Subscribe to us */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-4">
         <div className="flex items-center w-full flex-grow">
-          <h2 className="text-[clamp(40px,5vw,64px)] font-normal leading-tight whitespace-nowrap tracking-tight">
+          <h2 className="text-[clamp(28px,5vw,64px)] font-normal leading-tight whitespace-normal sm:whitespace-nowrap tracking-tight text-center md:text-left w-full md:w-auto">
             Subscribe to us
           </h2>
           <div className="hidden md:block w-full h-[1px] bg-white/10 ml-12"></div>

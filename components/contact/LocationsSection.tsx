@@ -65,13 +65,13 @@ function LocationCard({ city, email, timezone, imageSrc, index }: LocationCardPr
       </div>
 
       {/* Info Bar */}
-      <div className="w-full py-6 flex items-center justify-between px-2">
-        <div className="flex items-center gap-2 text-lg text-white font-normal">
+      <div className="w-full py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-2 px-2">
+        <div className="flex flex-wrap items-center gap-2 text-base sm:text-lg text-white font-normal break-all">
           <span>{city}</span>
           <span className="opacity-40">—</span>
           <a 
             href={`mailto:${email}`} 
-            className="transition-all border-b border-transparent hover:border-white duration-200 hover:text-white font-normal"
+            className="transition-all border-b border-transparent hover:border-white duration-200 hover:text-white font-normal truncate max-w-full"
           >
             {email}
           </a>
