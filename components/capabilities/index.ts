@@ -6,3 +6,4 @@
 export { CapabilitiesSection, default } from "./CapabilitiesSection";
 export { CapabilityVisual } from "./CapabilityVisual";
 export { CapabilityList } from "./CapabilityList";
+export { CapabilitiesMarquee } from "./CapabilitiesMarquee";

@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Navbar } from "@/components/Navbar";
 import { LenisProvider } from "@/components/LenisProvider";
-import SplashCursor from "@/components/ui/SplashCursor";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,18 +30,6 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-full antialiased">
-        <SplashCursor
-          DENSITY_DISSIPATION={3.5}
-          VELOCITY_DISSIPATION={2}
-          PRESSURE={0.1}
-          CURL={3}
-          SPLAT_RADIUS={0.2}
-          SPLAT_FORCE={6000}
-          COLOR_UPDATE_SPEED={10}
-          SHADING={true}
-          RAINBOW_MODE={false}
-          COLOR="#ca7a3a"
-        />
         <LenisProvider />
         <Navbar />
         <main id="top">{children}</main>

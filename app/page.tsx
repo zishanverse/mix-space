@@ -3,9 +3,9 @@
 import { Hero } from "@/components/hero";
 import { TextRevealSection } from "@/components/text-reveal";
 import { AboutUsSection } from "@/components/about-us";
-import { CapabilitiesSection } from "@/components/capabilities";
+import { CapabilitiesSection, CapabilitiesMarquee } from "@/components/capabilities";
 import { RecentWorkSection } from "@/components/recent-work";
-import { SignatureEngagementsSection } from "@/components/signature-engagements";
+//import { SignatureEngagementsSection } from "@/components/signature-engagements";
 import { InvestorsSection } from "@/components/investors";
 import { TestimonialsSection } from "@/components/testimonials";
 //import { ResearchSection } from "@/components/research";
@@ -34,11 +34,14 @@ export default function Home() {
       {/* Our Capabilities Section */}
       <CapabilitiesSection />
 
+      {/* Infinite Tags Marquee */}
+      <CapabilitiesMarquee />
+
       {/* Recent Work Section [03] */}
       <RecentWorkSection />
 
       {/* Signature Engagements Section [04] */}
-      <SignatureEngagementsSection />
+      {/* <SignatureEngagementsSection /> */}
 
       {/* Investors Marquee Section */}
       <InvestorsSection />

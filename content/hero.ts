@@ -31,6 +31,11 @@ export interface HeroContent {
     alt: string;
     fallbackColor: string;
     thumbnailVideoSrc?: string;
+    recommendedVideos?: {
+      id: string;
+      title: string;
+      src: string;
+    }[];
   };
 
   // Animation timing
@@ -65,7 +70,24 @@ export const heroContent: HeroContent = {
     src: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778419667/3197cdd6-1ef0a0b9_fianin.mp4",
     alt: "Abstract dark video background with futuristic visual effects",
     fallbackColor: "#0a0a0a",
-    thumbnailVideoSrc: "https://download-video-ak.vimeocdn.com/v3-1/playback/7c226cf2-eeab-440c-adf8-96096152ce50/2686a785-727ee365?__token__=st=1778415294~exp=1778418894~acl=%2Fv3-1%2Fplayback%2F7c226cf2-eeab-440c-adf8-96096152ce50%2F2686a785-727ee365%2A~hmac=18a5a228971aba0ae3ebd8616ab0bbcf005a0f5b80acbbffbe8e3d171933b1e5&r=dXMtd2VzdDE%3D",
+    thumbnailVideoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778609416/coders%20express/Copy_of_Shoes_CGI_jclfwy.mp4",
+    recommendedVideos: [
+      {
+        id: "rec-1",
+        title: "McLaren Studio",
+        src: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778609300/coders%20express/Copy_of_McLaren_studio_edit_o5jm4d.mp4"
+      },
+      {
+        id: "rec-2",
+        title: "KartPipe Project",
+        src: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778608880/coders%20express/Copy_of_Video_06-_KartPipe_low_res_jggtyy.mp4"
+      },
+      {
+        id: "rec-3",
+        title: "Sikret Shoot",
+        src: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778608811/coders%20express/Copy_of_Video_05-_Sikret_low_res_jj06rm.mp4"
+      }
+    ]
   },
 
   animation: {

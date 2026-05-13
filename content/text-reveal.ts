@@ -3,11 +3,6 @@
  * All text, client logos, and configuration for the text-reveal section
  */
 
-export interface ClientLogo {
-  name: string;
-  displayName: string;
-}
-
 export interface TextRevealContent {
   // Main text with scroll reveal
   text: {
@@ -20,13 +15,13 @@ export interface TextRevealContent {
     defaultMaxWidth: string;
   };
 
-  // Client logos
-  logos: {
-    items: ClientLogo[];
-    height: string;
-    width: string;
-    opacity: number;
-    spacing: string;
+  // Taglines instead of logos
+  taglines: {
+    items: {
+      id: string;
+      title: string;
+      subtitle: string;
+    }[];
   };
 
   // Decorative elements
@@ -40,8 +35,8 @@ export interface TextRevealContent {
     scrollStart: string;
     scrollEnd: string;
     scrub: number | boolean;
-    logoDelay: number;
-    logoDuration: number;
+    containerDelay: number;
+    containerDuration: number;
     highlightDelay: number;
   };
 }
@@ -57,19 +52,12 @@ export const textRevealContent: TextRevealContent = {
     defaultMaxWidth: "900px",
   },
 
-  logos: {
+  taglines: {
     items: [
-      { name: "moonpay", displayName: "MoonPay" },
-      { name: "nike", displayName: "Nike" },
-      { name: "animoca", displayName: "Animoca Brands" },
-      { name: "biconomy", displayName: "Biconomy" },
-      { name: "rayls", displayName: "Rayls" },
-      { name: "cartesi", displayName: "Cartesi" },
+      { id: "01", title: "Design", subtitle: "Brand Identities & Experiences" },
+      { id: "02", title: "Marketing", subtitle: "Growth, Search & Strategy" },
+      { id: "03", title: "Development", subtitle: "High-Perf Web & Digital Tech" },
     ],
-    height: "28px",
-    width: "auto",
-    opacity: 0.9,
-    spacing: "3rem",
   },
 
   decoration: {
@@ -81,8 +69,8 @@ export const textRevealContent: TextRevealContent = {
     scrollStart: "top 92%",
     scrollEnd: "bottom 50%",
     scrub: 1,
-    logoDelay: 0.3,
-    logoDuration: 0.8,
+    containerDelay: 0.3,
+    containerDuration: 1.2,
     highlightDelay: 0.05,
   },
 } as const;

@@ -5,5 +5,4 @@
 
 export { TextRevealSection, default } from "./TextRevealSection";
 export { TextReveal } from "./TextReveal";
-export { ClientLogos } from "./ClientLogos";
-export * from "./logos";
+export { TaglineContainers } from "./TaglineContainers";

@@ -1,7 +1,7 @@
 "use client";
 
 import { TextReveal } from "./TextReveal";
-import { ClientLogos } from "./ClientLogos";
+import { TaglineContainers } from "./TaglineContainers";
 
 interface TextRevealSectionProps {
   maxWidth?: string;
@@ -17,7 +17,7 @@ export function TextRevealSection({
   return (
     <section
       id="text-reveal"
-      className="relative flex min-h-[50vh] flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-8"
+      className="relative flex min-h-[60vh] flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-8 py-20"
     >
       {/* Text Reveal Component with width control and highlight options */}
       <TextReveal
@@ -26,8 +26,8 @@ export function TextRevealSection({
         enableHighlight={enableHighlight}
       />
 
-      {/* Client Logos Component */}
-      <ClientLogos />
+      {/* Animated Taglines Component */}
+      <TaglineContainers />
     </section>
   );
 }
