@@ -1,0 +1,250 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
+const TEAM = [
+  {
+    id: "01",
+    name: "Anthony Logan",
+    title: "CEO & Founder",
+    photo: "https://res.cloudinary.com/deepcnbrz/image/upload/v1778653876/coders%20express/673e8e753711fbda19240478_Rayls_jui2an.webp",
+    bio: "Anthony role is connecting our studio teams, ventures and partners. His experience building companies from the ground up across a multitude of industries, means he has a broad depth of knowledge across every aspect of venture building. Anthony works closely with our partner network of VC's, ensuring our founders can access advice and capital when they need it.",
+  },
+  {
+    id: "02",
+    name: "Jamie Sellars",
+    title: "COO & Founder",
+    photo: "",
+    bio: "Jamie oversees operations across all Noir verticals, ensuring seamless delivery across studio, ventures and marketing. With a background spanning strategy, operations and brand, Jamie brings the connective tissue that keeps complex, multi-stakeholder projects running on time and on brief.",
+  },
+  {
+    id: "03",
+    name: "Luca Marchetti",
+    title: "Creative Director",
+    photo: "",
+    bio: "Luca leads the creative vision across all Noir studio output. With a background in brand identity, motion and digital design, he has shaped campaigns and identities for Fortune 500 companies and emerging Web3 brands alike.",
+  },
+  {
+    id: "04",
+    name: "Sara Kim",
+    title: "Head of Strategy",
+    photo: "",
+    bio: "Sara leads brand strategy and market positioning for Noir's clients. She brings experience from leading global agencies, helping brands navigate complex market shifts and communicate with clarity in emerging technology sectors.",
+  },
+];
+
+function ToggleIcon({ isOpen }: { isOpen: boolean }) {
+  return (
+    <div style={{ width: "20px", height: "20px", position: "relative", flexShrink: 0 }}>
+      <span
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: 0,
+          right: 0,
+          height: "1px",
+          backgroundColor: "rgba(255,255,255,0.5)",
+          transform: "translateY(-50%)",
+        }}
+      />
+      <span
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: 0,
+          bottom: 0,
+          width: "1px",
+          backgroundColor: "rgba(255,255,255,0.5)",
+          transform: `translateX(-50%) scaleY(${isOpen ? 0 : 1})`,
+          transition: "transform 0.3s ease",
+        }}
+      />
+    </div>
+  );
+}
+
+function TeamRow({
+  member,
+  isOpen,
+  onToggle,
+}: {
+  member: (typeof TEAM)[0];
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div
+      style={{ borderTop: "1px solid rgba(255,255,255,0.08)", cursor: "pointer" }}
+      onClick={onToggle}
+    >
+      {/* Collapsed header row: Name | Title | — | Toggle */}
+      <div
+        className="flex items-center justify-between"
+        style={{ padding: "24px 0", gap: "40px" }}
+      >
+        {/* Name */}
+        <h3
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "clamp(18px, 2vw, 26px)",
+            fontWeight: 400,
+            color: "#ffffff",
+            margin: 0,
+            letterSpacing: "-0.01em",
+            flex: "0 0 clamp(200px, 25%, 320px)",
+          }}
+        >
+          {member.name}
+        </h3>
+
+        {/* Title */}
+        <span
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "clamp(14px, 1.4vw, 18px)",
+            fontWeight: 400,
+            color: "rgba(255,255,255,0.45)",
+            flex: 1,
+          }}
+        >
+          {member.title}
+        </span>
+
+        {/* Toggle icon */}
+        <ToggleIcon isOpen={isOpen} />
+      </div>
+
+      {/* Expanded: Photo | Bio */}
+      <div
+        style={{
+          maxHeight: isOpen ? "500px" : "0px",
+          overflow: "hidden",
+          opacity: isOpen ? 1 : 0,
+          transition:
+            "max-height 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease",
+        }}
+      >
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: "clamp(200px, 25%, 320px) 1fr 1fr",
+            gap: "40px",
+            paddingBottom: "40px",
+          }}
+        >
+          {/* Empty col aligns with name */}
+          <div />
+
+          {/* Photo */}
+          <div
+            style={{
+              width: "140px",
+              height: "160px",
+              position: "relative",
+              backgroundColor: "#1a1a1a",
+              borderRadius: "4px",
+              overflow: "hidden",
+              flexShrink: 0,
+            }}
+          >
+            {member.photo ? (
+              <Image
+                src={member.photo}
+                alt={member.name}
+                fill
+                className="object-cover object-top grayscale"
+              />
+            ) : (
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "10px",
+                    color: "rgba(255,255,255,0.2)",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Photo
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Bio */}
+          <p
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "14px",
+              lineHeight: 1.75,
+              color: "rgba(255,255,255,0.55)",
+              margin: 0,
+            }}
+          >
+            {member.bio}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function StudioTeam() {
+  const [openIndex, setOpenIndex] = useState<number>(0);
+
+  return (
+    <section
+      className="w-full"
+      style={{
+        backgroundColor: "var(--background)",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
+        padding: "var(--space-xl, 80px) 0 var(--space-2xl, 120px) 0",
+      }}
+    >
+      <div
+        className="mx-auto w-full"
+        style={{ maxWidth: "1440px", padding: "0 40px" }}
+      >
+        {/* Section header */}
+        <div
+          className="flex items-center gap-3 mb-10"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "11px",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+          }}
+        >
+          <span style={{ color: "var(--color-text-muted)" }}>[03]</span>
+          <span style={{ color: "var(--color-text-secondary)" }}>
+            Leadership Team
+          </span>
+        </div>
+
+        {/* Team accordion */}
+        <div>
+          {TEAM.map((member, i) => (
+            <TeamRow
+              key={member.id}
+              member={member}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
+            />
+          ))}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default StudioTeam;
