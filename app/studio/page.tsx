@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/footer/Footer";
-import { StudioHero } from "@/components/studio";
+import { StudioHero, StudioManifesto, StudioReel, StudioAbout } from "@/components/studio";
 
 export default function StudioPage() {
   return (
@@ -10,6 +10,12 @@ export default function StudioPage() {
       <Navbar />
       
       <StudioHero />
+
+      <StudioManifesto />
+
+      <StudioReel />
+
+      <StudioAbout />
       
       <Footer />
     </main>

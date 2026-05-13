@@ -25,7 +25,7 @@ export const navbarContent = {
   // Navigation links
   navLinks: [
     { label: "Work", href: "/#recent-work" },
-    { label: "Studio", href: "/#capabilities" },
+    { label: "Studio", href: "/studio" },
     { label: "Ventures", href: "/#signature-engagements" },
     { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "/contact" },

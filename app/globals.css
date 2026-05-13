@@ -35,7 +35,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -354,4 +353,21 @@ body:has(button:hover) #cursor-ring {
 
 .animate-scroll-bounce {
   animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* Studio Reel shimmer skeleton */
+@keyframes reel-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.studio-reel-shimmer {
+  background: linear-gradient(
+    90deg,
+    #111111 25%,
+    #1e1e1e 50%,
+    #111111 75%
+  );
+  background-size: 200% 100%;
+  animation: reel-shimmer 2.5s ease-in-out infinite;
 }

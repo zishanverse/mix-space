@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Navbar } from "@/components/Navbar";
-import { LenisProvider } from "@/components/LenisProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -30,7 +29,6 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-full antialiased">
-        <LenisProvider />
         <Navbar />
         <main id="top">{children}</main>
         
