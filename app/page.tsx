@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Hero } from "@/components/hero";
 import { TextRevealSection } from "@/components/text-reveal";
 import { AboutUsSection } from "@/components/about-us";
+import { ResearchSection } from "@/components/research";
 
 // Dynamically import below-the-fold components to reduce initial JavaScript execution
 const CapabilitiesSection = dynamic(() => import("@/components/capabilities").then(m => m.CapabilitiesSection), { ssr: true });
@@ -52,7 +53,7 @@ export default function Home() {
       <TestimonialsSection />
 
       {/* Research & Writings [05] */}
-      {/* <ResearchSection /> */}
+      <ResearchSection />
 
       {/* FAQ Section */}
       <FAQSection />
