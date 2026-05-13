@@ -139,13 +139,11 @@ function ServiceRow({
         <ToggleIcon isOpen={isOpen} />
       </div>
 
-      {/* Expanded: 3-column horizontal row */}
+      {/* Expanded: 3-column horizontal row (stacks on mobile) */}
       <div
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-[40px]"
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: "40px",
-          maxHeight: isOpen ? "400px" : "0px",
+          maxHeight: isOpen ? "600px" : "0px", // slightly higher for mobile stacked content
           overflow: "hidden",
           opacity: isOpen ? 1 : 0,
           transition:
@@ -153,8 +151,8 @@ function ServiceRow({
           paddingBottom: isOpen ? "40px" : "0px",
         }}
       >
-        {/* Col 1: Empty (aligns with name above) */}
-        <div />
+        {/* Col 1: Empty (hidden on mobile, aligns with name above on desktop) */}
+        <div className="hidden md:block" />
 
         {/* Col 2: Description */}
         <p
@@ -206,12 +204,10 @@ export function StudioServices() {
         className="mx-auto w-full"
         style={{ maxWidth: "1440px", padding: "0 40px" }}
       >
-        {/* Section header row — 3 column alignment */}
+        {/* Section header row — stacks on mobile, 3 col grid on desktop */}
         <div
-          className="grid mb-10"
+          className="flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-[40px] mb-10"
           style={{
-            gridTemplateColumns: "1fr 1fr 1fr",
-            gap: "40px",
             fontFamily: "var(--font-body)",
             fontSize: "11px",
             letterSpacing: "0.12em",
@@ -224,8 +220,8 @@ export function StudioServices() {
               What We Do
             </span>
           </div>
-          <div /> {/* empty middle col */}
-          <div /> {/* empty right col */}
+          <div className="hidden md:block" /> {/* empty middle col */}
+          <div className="hidden md:block" /> {/* empty right col */}
         </div>
 
         {/* Accordion rows */}

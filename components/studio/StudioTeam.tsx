@@ -78,38 +78,40 @@ function TeamRow({
       style={{ borderTop: "1px solid rgba(255,255,255,0.08)", cursor: "pointer" }}
       onClick={onToggle}
     >
-      {/* Collapsed header row: Name | Title | — | Toggle */}
+      {/* Collapsed header row: Name | Title | — | Toggle (stacks on mobile, aligns on tablet+) */}
       <div
-        className="flex items-center justify-between"
-        style={{ padding: "24px 0", gap: "40px" }}
+        className="flex items-center justify-between gap-6 md:gap-[40px]"
+        style={{ padding: "24px 0" }}
       >
-        {/* Name */}
-        <h3
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "clamp(18px, 2vw, 26px)",
-            fontWeight: 400,
-            color: "#ffffff",
-            margin: 0,
-            letterSpacing: "-0.01em",
-            flex: "0 0 clamp(200px, 25%, 320px)",
-          }}
-        >
-          {member.name}
-        </h3>
+        <div className="flex flex-col sm:flex-row sm:items-center flex-1 gap-1 sm:gap-[40px]">
+          {/* Name */}
+          <h3
+            className="shrink-0 sm:w-[clamp(180px,25%,320px)]"
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "clamp(18px, 2vw, 26px)",
+              fontWeight: 400,
+              color: "#ffffff",
+              margin: 0,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {member.name}
+          </h3>
 
-        {/* Title */}
-        <span
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "clamp(14px, 1.4vw, 18px)",
-            fontWeight: 400,
-            color: "rgba(255,255,255,0.45)",
-            flex: 1,
-          }}
-        >
-          {member.title}
-        </span>
+          {/* Title */}
+          <span
+            className="flex-1"
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "clamp(13px, 1.4vw, 17px)",
+              fontWeight: 400,
+              color: "rgba(255,255,255,0.45)",
+            }}
+          >
+            {member.title}
+          </span>
+        </div>
 
         {/* Toggle icon */}
         <ToggleIcon isOpen={isOpen} />
@@ -118,7 +120,7 @@ function TeamRow({
       {/* Expanded: Photo | Bio */}
       <div
         style={{
-          maxHeight: isOpen ? "500px" : "0px",
+          maxHeight: isOpen ? "650px" : "0px", // extra buffer for stacked layout
           overflow: "hidden",
           opacity: isOpen ? 1 : 0,
           transition:
@@ -126,15 +128,10 @@ function TeamRow({
         }}
       >
         <div
-          className="grid"
-          style={{
-            gridTemplateColumns: "clamp(200px, 25%, 320px) 1fr 1fr",
-            gap: "40px",
-            paddingBottom: "40px",
-          }}
+          className="grid grid-cols-1 md:grid-cols-[clamp(180px,25%,320px)_1fr_1.5fr] gap-6 md:gap-[40px] pb-10"
         >
-          {/* Empty col aligns with name */}
-          <div />
+          {/* Empty col aligns with name (hidden on mobile) */}
+          <div className="hidden md:block" />
 
           {/* Photo */}
           <div

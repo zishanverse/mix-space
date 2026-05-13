@@ -182,9 +182,8 @@ export function StudioFocus() {
           {/* LEFT — image panel */}
           <div
             ref={leftRef}
-            className="md:sticky md:top-[120px] z-10"
+            className="w-full md:w-[clamp(280px,38%,520px)] md:shrink-0 md:sticky md:top-[120px] z-10"
             style={{
-              flex: "0 0 clamp(280px, 38%, 520px)",
               opacity: 0,
               transform: "translateX(-40px)",
             }}

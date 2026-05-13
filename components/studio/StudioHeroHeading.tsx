@@ -6,7 +6,7 @@ export function StudioHeroHeading() {
       className="relative z-0 flex items-center justify-center text-white font-normal text-center w-full" 
       style={{ 
         fontFamily: "var(--font-display)",
-        fontSize: "clamp(100px, 25vw, 400px)",
+        fontSize: "clamp(64px, 25vw, 400px)",
         letterSpacing: "-0.04em",
         lineHeight: 1
       }}

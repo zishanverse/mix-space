@@ -124,7 +124,7 @@ function Panel({
           <h2
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(60px, 8vw, 96px)",
+              fontSize: "clamp(42px, 8vw, 96px)",
               fontWeight: 400,
               color: "#ffffff",
               margin: 0,

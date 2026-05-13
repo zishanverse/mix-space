@@ -153,7 +153,9 @@ export function StudioResults() {
       repeat: -1,
     });
 
-    return () => tweenRef.current?.kill();
+    return () => {
+      tweenRef.current?.kill();
+    };
   }, [loopWidth]);
 
   return (

@@ -71,11 +71,7 @@ export function StudioAbout() {
       >
         {/* ── LEFT: narrow label column ── */}
         <div
-          className="shrink-0 flex items-start"
-          style={{
-            width: "clamp(140px, 22vw, 280px)",
-            padding: "clamp(48px, 6vw, 96px) 0 clamp(48px, 6vw, 96px) clamp(20px, 4vw, 60px)",
-          }}
+          className="shrink-0 flex items-start w-full md:w-[clamp(140px,22vw,280px)] px-6 md:px-0 md:pl-[clamp(20px,4vw,60px)] pt-12 md:pt-[clamp(48px,6vw,96px)] pb-4 md:pb-[clamp(48px,6vw,96px)]"
         >
           <span
             style={{
@@ -92,10 +88,7 @@ export function StudioAbout() {
 
         {/* ── RIGHT: heading + paragraph ── */}
         <div
-          className="flex-1 flex flex-col"
-          style={{
-            padding: "clamp(48px, 6vw, 96px) clamp(20px, 4vw, 60px) clamp(48px, 6vw, 96px) 0",
-          }}
+          className="flex-1 flex flex-col px-6 md:px-0 md:pr-[clamp(20px,4vw,60px)] pt-4 md:pt-[clamp(48px,6vw,96px)] pb-12 md:pb-[clamp(48px,6vw,96px)]"
         >
           {/* Large mixed-weight heading */}
           <h2
