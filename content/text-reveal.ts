@@ -43,8 +43,8 @@ export interface TextRevealContent {
 
 export const textRevealContent: TextRevealContent = {
   text: {
-    content: "We turn disruptive ideas into category defining companies.",
-    ariaLabel: "We turn disruptive ideas into category defining companies",
+    content: "Powering Businesses with Digital Innovation",
+    ariaLabel: "Powering Businesses with Digital Innovation",
     initialColor: "#888",
     revealedColor: "#ffffff",
     highlightedWords: ["disruptive", "category", "defining"], // Words that highlight first/brighter

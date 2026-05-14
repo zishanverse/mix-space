@@ -11,9 +11,59 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Coders Express — Global Branding & Design Studio",
+  title: {
+    default: "Coders Express — Global Branding & Design Studio",
+    template: "%s | Coders Express",
+  },
   description:
-    "We are a global branding & design studio, working with founders to create brands, products & digital experiences for the new internet.",
+    "We are a premier global branding and digital design studio. We collaborate with ambitious founders to build world-class brands, high-converting websites, and cinematic digital experiences for the modern internet.",
+  keywords: [
+    "branding agency",
+    "digital design studio",
+    "UI UX design",
+    "web development agency",
+    "creative studio",
+    "brand strategy",
+    "Coders Express",
+    "custom software development",
+    "motion graphics design",
+    "high-end websites",
+    "Cinematic visual effects",
+  ],
+  authors: [{ name: "Coders Express" }],
+  creator: "Coders Express",
+  publisher: "Coders Express",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "Coders Express — Global Branding & Design Studio",
+    description: "Collaborating with ambitious founders to build world-class brands, high-converting websites, and cinematic digital experiences.",
+    url: "https://www.codersexpress.com",
+    siteName: "Coders Express",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Coders Express — Global Branding & Design Studio",
+    description: "Collaborating with ambitious founders to build world-class brands and cinematic digital experiences.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

@@ -120,13 +120,6 @@ export function StudioFocus() {
                 leftRef.current.style.transition = "opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)";
                 leftRef.current.style.opacity = "1";
                 leftRef.current.style.transform = "translateX(0)";
-                // Crucial for position: sticky! Transform restricts sticky positioning context.
-                // Clearing it once the reveal animation finishes allows native sticky behavior.
-                setTimeout(() => {
-                  if (leftRef.current) {
-                    leftRef.current.style.transform = "none";
-                  }
-                }, 1000);
               }
               if (rightRef.current) {
                 rightRef.current.style.transition = "opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)";
@@ -179,15 +172,19 @@ export function StudioFocus() {
         {/* Two-column layout */}
         <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
 
-          {/* LEFT — image panel */}
+          {/* LEFT — image panel container (Pure Sticky context) */}
           <div
-            ref={leftRef}
             className="w-full md:w-[clamp(280px,38%,520px)] md:shrink-0 md:sticky md:top-[120px] z-10"
-            style={{
-              opacity: 0,
-              transform: "translateX(-40px)",
-            }}
           >
+            {/* Inner Reveal Wrapper (Handles transforms and opacity isolation) */}
+            <div
+              ref={leftRef}
+              style={{
+                opacity: 0,
+                transform: "translateX(-40px)",
+                width: "100%",
+              }}
+            >
             <div
               style={{
                 position: "relative",
@@ -222,6 +219,7 @@ export function StudioFocus() {
               ))}
             </div>
           </div>
+          </div>
 
           {/* RIGHT — industry name list */}
           <div
@@ -248,7 +246,8 @@ export function StudioFocus() {
                       color: isActive ? "#ffffff" : "rgba(255,255,255,0.18)",
                       cursor: "pointer",
                       transition: "color 0.25s ease, font-weight 0.25s ease",
-                      paddingBottom: "4px",
+                      padding: "clamp(20px, 2.5vh, 40px) 0",
+                      borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
                       userSelect: "none",
                     }}
                   >

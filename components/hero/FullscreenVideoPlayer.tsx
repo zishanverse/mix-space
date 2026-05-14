@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export interface RecommendedVideo {
@@ -25,7 +26,13 @@ export function FullscreenVideoPlayer({
   const [currentVideo, setCurrentVideo] = useState(initialVideoSrc);
   const [showEndScreen, setShowEndScreen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [mounted, setMounted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Track mounting state for Portal
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Handle locking scroll when open
   useEffect(() => {
@@ -89,7 +96,9 @@ export function FullscreenVideoPlayer({
     setIsPlaying(true);
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -131,7 +140,7 @@ export function FullscreenVideoPlayer({
             {/* Elegant Floating Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-8 right-8 z-50 flex items-center justify-center h-12 w-12 rounded-full border border-white/10 bg-black/50 text-white/70 hover:text-white hover:border-[#ca7a3a]/50 hover:bg-[#ca7a3a]/10 transition-all duration-300 group/close"
+              className="absolute top-6 right-6 md:top-8 md:right-8 z-50 flex items-center justify-center h-12 w-12 rounded-full border border-white/10 bg-black/50 text-white/70 hover:text-white hover:border-[#ca7a3a]/50 hover:bg-[#ca7a3a]/10 transition-all duration-300 group/close"
               aria-label="Close video player"
             >
               <svg
@@ -269,7 +278,8 @@ export function FullscreenVideoPlayer({
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
 

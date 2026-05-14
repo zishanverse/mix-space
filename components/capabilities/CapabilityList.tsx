@@ -94,7 +94,9 @@ export function CapabilityList({ activeCapability, onCapabilityChange }: Capabil
             color: activeCapability === capability.id ? "#ca7a3a" : "#666666",
             fontSize: "clamp(26px, 3.2vw, 64px)",
             lineHeight: 1.18,
-            padding: "2px 0",
+            padding: "clamp(18px, 2.5vh, 36px) 0",
+            borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
+            width: "100%",
           }}
           onMouseEnter={() => onCapabilityChangeRef.current(capability.id)}
           aria-label={capability.name}
