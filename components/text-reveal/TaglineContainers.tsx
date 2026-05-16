@@ -38,8 +38,8 @@ function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`tagline-item group relative overflow-hidden rounded-2xl border transition-all duration-700 flex flex-col justify-between min-h-[200px] sm:min-h-[220px] p-10 cursor-default w-full max-w-sm md:max-w-none mx-auto backdrop-blur-sm ${isHighlighted
-          ? "border-[#ca7a3a]/50 scale-[1.05] -translate-y-3 bg-zinc-900/60 shadow-[0_20px_50px_rgba(202,122,58,0.15)]"
+      className={`tagline-item group relative overflow-hidden rounded-2xl border transition-all duration-700 flex flex-col justify-between min-h-[180px] sm:min-h-[220px] p-6 sm:p-8 lg:p-10 cursor-default w-full max-w-sm md:max-w-none mx-auto backdrop-blur-sm ${isHighlighted
+          ? "border-[#ca7a3a]/50 scale-[1.03] sm:scale-[1.05] -translate-y-2 sm:-translate-y-3 bg-zinc-900/60 shadow-[0_20px_50px_rgba(202,122,58,0.15)]"
           : "border-white/10 bg-zinc-900/30 hover:border-[#ca7a3a]/30 hover:scale-[1.02] hover:-translate-y-2"
         }`}
       style={{
