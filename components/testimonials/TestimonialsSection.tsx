@@ -119,6 +119,8 @@ export function TestimonialsSection() {
                     src={t.avatar}
                     alt={t.name}
                     fill
+                    unoptimized
+                    sizes="80px"
                     className="object-cover"
                   />
                 )}
