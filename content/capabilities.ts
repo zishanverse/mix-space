@@ -62,7 +62,8 @@ export const capabilitiesContent: CapabilitiesContent = {
       name: "Brand Strategy",
       visualClass: "capability-visual-brand-strategy",
       backgroundColor: "#1a1a1a",
-      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f304563a09ff2ebbfb51_01%20Strategy-transcode.mp4",
+      // OLD: https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f304563a09ff2ebbfb51_01%20Strategy-transcode.mp4
+      videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1779085963/brand_strategy_ummqtg.mp4",
       videoPoster: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f304563a09ff2ebbfb51_01%20Strategy-poster-00001.jpg",
     },
     {
@@ -70,27 +71,31 @@ export const capabilitiesContent: CapabilitiesContent = {
       name: "Design & Development",
       visualClass: "capability-visual-ux-ui",
       backgroundColor: "#1a1a2e",
-      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F675226adf3702bd049989fd3_04%20UX%20UI-transcode.mp4",
+      // OLD: https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F675226adf3702bd049989fd3_04%20UX%20UI-transcode.mp4
+      videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1779085945/web_dev_dssx1r.mp4",
     },
     {
       id: "content-creation",
       name: "Content Creation",
       visualClass: "capability-visual-content-creation",
       backgroundColor: "#0a1a0a",
-      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f4d2ef445b2b7591c4c5_08%20Content-transcode.mp4",
+      // OLD: https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f4d2ef445b2b7591c4c5_08%20Content-transcode.mp4
+      videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1779085946/content_creation_xw0qx3.mp4",
     },
     {
       id: "paid-social",
       name: "Social Media",
       visualClass: "capability-visual-paid-social",
       backgroundColor: "#1a1015",
+      videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1779085956/social_media_swzswn.mp4",
     },
     {
       id: "advertising",
       name: "Advertising",
       visualClass: "capability-visual-advertising",
       backgroundColor: "#0d0a0a",
-      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f40a01bac18bcf639e9a_10%20Ads-transcode.mp4",
+      // OLD: https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6749f40a01bac18bcf639e9a_10%20Ads-transcode.mp4
+      videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1779085948/ads_ugztmt.mp4",
     },
     {
       id: "crm-automation",
@@ -104,7 +109,8 @@ export const capabilitiesContent: CapabilitiesContent = {
       name: "Search & Visibility",
       visualClass: "capability-visual-pitch-deck",
       backgroundColor: "#1a0e08",
-      videoSrc: "https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6752269d774a939460393441_03%20Product-transcode.mp4",
+      // OLD: https://cdn.prod.website-files.com/66855a8fb48b8d40d74e0d01%2F6752269d774a939460393441_03%20Product-transcode.mp4
+      videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1779085945/seo_pu7vsb.mp4",
     },
   ],
 
