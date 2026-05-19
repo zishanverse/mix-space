@@ -11,6 +11,7 @@ export interface WorkProject {
   size: "wide" | "normal" | "tall";
   year: string;
   videoSrc?: string;
+  videoStartTime?: number;
 }
 
 export interface RecentWorkContent {
@@ -49,6 +50,7 @@ export const recentWorkContent: RecentWorkContent = {
       size: "normal",
       year: "2024",
       videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778609224/coders%20express/Copy_of_Copy_of_Video_08-_Wox_Box_b9tphy.mp4",
+      videoStartTime: 3,
     },
     {
       id: "crypto-autos",
@@ -58,6 +60,7 @@ export const recentWorkContent: RecentWorkContent = {
       size: "normal",
       year: "2024",
       videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778574528/coders%20express/Copy_of_Video_07-_Triple_Twist_Pen_low_res_rkhjx9.mp4",
+      videoStartTime: 3,
     },
     {
       id: "moonpay",
@@ -66,7 +69,8 @@ export const recentWorkContent: RecentWorkContent = {
       image: "/images/recent-work/moonpay.png",
       size: "wide",
       year: "2023",
-      videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778574528/coders%20express/Copy_of_Video_07-_Triple_Twist_Pen_low_res_rkhjx9.mp4",
+      videoSrc: "https://res.cloudinary.com/deepcnbrz/video/upload/v1778609175/coders%20express/Copy_of_Zomato_CGI_g9ar1j.mp4",
+      videoStartTime: 6,
     },
   ],
 };

@@ -77,8 +77,21 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             className="absolute inset-0 h-full w-full object-cover"
             autoPlay
             muted
-            loop
             playsInline
+            onLoadedMetadata={(e) => {
+              if (project.videoStartTime) {
+                e.currentTarget.currentTime = project.videoStartTime;
+              }
+            }}
+            onEnded={(e) => {
+              if (project.videoStartTime) {
+                e.currentTarget.currentTime = project.videoStartTime;
+                e.currentTarget.play();
+              } else {
+                e.currentTarget.currentTime = 0;
+                e.currentTarget.play();
+              }
+            }}
           />
         ) : (
           <Image
