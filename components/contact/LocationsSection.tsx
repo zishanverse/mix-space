@@ -20,106 +20,82 @@ function LiveClock({ timezone }: { timezone: string }) {
       setTime(formatted);
     };
 
-    updateTime(); // Initial call
+    updateTime();
     const interval = setInterval(updateTime, 1000);
-    
     return () => clearInterval(interval);
   }, [timezone]);
 
-  // Avoid SSR mismatch / hydration ghost display
-  if (!time) return <div className="min-w-[80px] h-5 bg-white/5 animate-pulse rounded" />;
+  if (!time) return <div className="min-w-[72px] h-8 bg-white/5 animate-pulse rounded-full" />;
 
   return (
-    <div className="bg-[#222222] px-[18px] py-[8px] rounded-[40px] text-white font-normal text-sm tracking-wide whitespace-nowrap select-none">
+    <div className="bg-[#222222] px-4 py-2 rounded-full text-white font-normal text-sm tracking-wide whitespace-nowrap select-none shrink-0">
       {time}
     </div>
   );
 }
 
-interface LocationCardProps {
-  city: string;
-  email: string;
-  timezone: string;
-  imageSrc: string;
-  index: number;
-}
-
-function LocationCard({ city, email, timezone, imageSrc, index }: LocationCardProps) {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.96 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="flex-1 w-full flex flex-col"
-    >
-      {/* Image Container */}
-      <div className="group w-full h-[55vh] min-h-[420px] bg-[#1a1a1a] rounded-2xl md:rounded-3xl overflow-hidden relative cursor-pointer shadow-2xl">
-        <Image
-          src={imageSrc}
-          alt={`${city} Location`}
-          fill
-          className="object-cover grayscale brightness-90 group-hover:brightness-100 transition-all duration-[800ms] ease-out transform group-hover:scale-[1.06]"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-
-      {/* Info Bar */}
-      <div className="w-full py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-2 px-2">
-        <div className="flex flex-wrap items-center gap-2 text-base sm:text-lg text-white font-normal break-all">
-          <span>{city}</span>
-          <span className="opacity-40">—</span>
-          <a 
-            href={`mailto:${email}`} 
-            className="transition-all border-b border-transparent hover:border-white duration-200 hover:text-white font-normal truncate max-w-full"
-          >
-            {email}
-          </a>
-        </div>
-        
-        <LiveClock timezone={timezone} />
-      </div>
-    </motion.div>
-  );
-}
-
 export function LocationsSection() {
-  const locations = [
-    {
-      city: "Dubai",
-      email: "dubai@codersexpress.com",
-      timezone: "Asia/Dubai",
-      imageSrc: "/assets/contact/66855a8fb48b8d40d74e0d01_66bc6ba8241edb738037d4d4_subtle_and_minmal_fog_slowly_appearing_across_the_buildings__dbd88f-poster-00001.jpg"
-    },
-    {
-      city: "London",
-      email: "london@codersexpress.com",
-      timezone: "Europe/London",
-      imageSrc: "/assets/contact/66855a8fb48b8d40d74e0d01_66bc6bc3c7303c68d8104161_subtle_and_minmal_fog_slowly_appearing_across_the_buildings_781bc0-poster-00001.jpg"
-    }
-  ];
+  const location = {
+    city: "Delhi",
+    email: "delhi@codersexpress.com",
+    timezone: "Asia/Kolkata",
+    imageSrc: "/assets/contact/shalender-kumar-XjKaPInYVCM-unsplash.jpg",
+  };
 
   return (
-    <section className="w-full bg-black pt-20 pb-20 relative">
+    <section className="w-full bg-black pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 relative">
       {/* Section Label */}
-      <div className="px-6 lg:px-20 mb-6">
-        <h3 className="text-[#555] text-[11px] font-medium uppercase tracking-[0.2em] select-none">
+      <div className="px-4 sm:px-8 lg:px-20 mb-4 sm:mb-6">
+        <h3 className="text-[#555] text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] select-none">
           Locations
         </h3>
       </div>
 
-      {/* Images Grid */}
-      <div className="w-full max-w-8xl mx-auto px-6 lg:px-20 flex flex-col md:flex-row items-stretch gap-10 md:gap-12 lg:gap-16">
-        {locations.map((loc, i) => (
-          <LocationCard 
-            key={loc.city} 
-            index={i}
-            city={loc.city} 
-            email={loc.email} 
-            timezone={loc.timezone} 
-            imageSrc={loc.imageSrc} 
-          />
-        ))}
+      {/* Single Card */}
+      <div className="w-full mx-auto px-4 sm:px-8 lg:px-20">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="w-full flex flex-col"
+        >
+          {/* Image — scales height per breakpoint */}
+          <div className="group w-full bg-[#1a1a1a] rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden relative cursor-pointer shadow-2xl"
+            style={{ height: "clamp(260px, 55vw, 680px)" }}
+          >
+            <Image
+              src={location.imageSrc}
+              alt={`${location.city} Location`}
+              fill
+              className="object-cover grayscale brightness-90 group-hover:brightness-100 transition-all duration-[800ms] ease-out group-hover:scale-[1.04]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+              priority
+            />
+            {/* Bottom gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          </div>
+
+          {/* Info Bar */}
+          <div className="w-full pt-4 pb-2 sm:py-5 flex flex-row items-center justify-between gap-3 px-1">
+            {/* City + Email */}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+              <span className="text-white font-normal text-sm sm:text-base lg:text-lg shrink-0">
+                {location.city}
+              </span>
+              <span className="text-white/40 shrink-0">—</span>
+              <a
+                href={`mailto:${location.email}`}
+                className="text-white/60 text-sm sm:text-base lg:text-lg font-normal truncate border-b border-transparent hover:border-white hover:text-white transition-all duration-200 min-w-0"
+              >
+                {location.email}
+              </a>
+            </div>
+
+            {/* Live Clock — always right-aligned */}
+            <LiveClock timezone={location.timezone} />
+          </div>
+        </motion.div>
       </div>
     </section>
   );
