@@ -2,33 +2,53 @@
 
 import { useRef, useState, useEffect } from "react";
 
-const CLIENTS = [
-  "Moonpay", "Animoca Brands", "Nike", "Cartesi", "Universal", "Skyscanner",
-  "Numbers", "Rayls", "Stream", "Alpen Labs", "Biconomy", "Capture", "BoomFi",
-  "Erlang", "Hypermint", "myenergi", "NFT NYC", "Lumen", "Klave",
-  "New York Fashion Week", "Vivid Q", "Thundercore", "Ringfence", "Blakbox",
-  "Prosper", "Rarestone", "Guardian", "Fomo", "Cold Electric", "Verse World",
-  "Oh.xyz", "Flashback", "Crypto Autos", "Farcana", "Kagi", "Seatlab",
-  "Zap", "Zeebu", "Caura", "Fractal", "Blue Origin", "OBS",
+const CLIENTS: { name: string; url: string }[] = [
+  { name: "Myboatride", url: "https://myboatride.com" },
+  { name: "Paytm", url: "https://www.instagram.com/paytm/?hl=en" },
+  { name: "Ekprint.in", url: "https://linktr.ee/ekprint.in" },
+  { name: "Italian Crust", url: "https://www.instagram.com/italiancrust/" },
+  { name: "Aryan Hr Solutions", url: "" },
+  { name: "The Flavour Trail", url: "https://theflavourtrail.com" },
+  { name: "Tata Motors", url: "https://cars.tatamotors.com/sierra/ice.html" },
+  { name: "Pc Jeweller", url: "https://www.pcjeweller.com" },
+  { name: "Jaypee Group", url: "https://www.jaypeehotels.com" },
+  { name: "Infinity Harbour Services", url: "https://www.instagram.com/watertaximumbai/" },
+  { name: "Tata Consultancy Services", url: "https://www.tcs.com/home-page" },
+  { name: "Radisson Blu", url: "https://www.radissonhotels.com/" },
+  { name: "Torque N Gears", url: "https://www.instagram.com/torquengears/" },
+  { name: "Macaire Bakery", url: "https://www.instagram.com/macairebakers/" },
+  { name: "In The Cavern", url: "https://inthecavern.com/" },
+  { name: "Haannaa AI", url: "https://haannaa.com" },
+  { name: "Scholars Academy, Delhi", url: "https://www.instagram.com/Scholarsacademyindia" },
 ];
 
-function ClientName({ name, isLast }: { name: string; isLast: boolean }) {
+function ClientName({ name, url, isLast }: { name: string; url: string; isLast: boolean }) {
   const [hovered, setHovered] = useState(false);
+
+  const textStyle = {
+    textDecoration: "none",
+    color: hovered && url ? "#ca8a04" : "var(--color-text-muted)",
+    cursor: url ? "pointer" : "default",
+    transition: "color 0.2s ease",
+    display: "inline",
+  };
 
   return (
     <>
-      <span
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        style={{
-          color: hovered ? "#ffffff" : "var(--color-text-muted)",
-          cursor: "pointer",
-          transition: "color 0.2s ease",
-          display: "inline",
-        }}
-      >
-        {name}
-      </span>
+      {url ? (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          style={textStyle}
+        >
+          {name}
+        </a>
+      ) : (
+        <span style={textStyle}>{name}</span>
+      )}
       {!isLast && (
         <span style={{ color: "var(--color-text-muted)" }}>,&nbsp;</span>
       )}
@@ -128,8 +148,8 @@ export function StudioClients() {
               margin: 0,
             }}
           >
-            {CLIENTS.map((name, i) => (
-              <ClientName key={name} name={name} isLast={i === CLIENTS.length - 1} />
+            {CLIENTS.map((client, i) => (
+              <ClientName key={client.name} name={client.name} url={client.url} isLast={i === CLIENTS.length - 1} />
             ))}
           </p>
         </div>

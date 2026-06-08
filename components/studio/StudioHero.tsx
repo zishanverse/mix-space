@@ -109,7 +109,7 @@ export function StudioHero() {
             Think Tank
           </span>
           <span className="hero-top-label opacity-0 translate-y-[10px] text-[13px] uppercase tracking-[0.1em] text-[#999999]" style={{ fontFamily: "var(--font-body)" }}>
-            Est. 2016
+            Est. 2019
           </span>
           <span className="hero-top-label opacity-0 translate-y-[10px] text-[13px] uppercase tracking-[0.1em] text-[#999999] hidden md:block" style={{ fontFamily: "var(--font-body)" }}>
             Creative Studio

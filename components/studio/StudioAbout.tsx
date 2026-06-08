@@ -108,9 +108,9 @@ export function StudioAbout() {
           >
             {/* Mixed weight — lighter text / bold emphasis / lighter / bold */}
             <span style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>CodersExpress provides </span>
-            <span style={{ color: "#ffffff", fontWeight: 700 }}>services globally with its design &amp; development studio </span>
+            <span style={{ color: "#ca7a3a", fontWeight: 700 }}>services globally with its design &amp; development studio </span>
             <span style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>based in </span>
-            <span style={{ color: "#ffffff", fontWeight: 700 }}>Delhi, India.</span>
+            <span style={{ color: "#ca7a3a", fontWeight: 700 }}>Delhi, India.</span>
           </h2>
 
           {/* Body paragraph */}
@@ -127,7 +127,7 @@ export function StudioAbout() {
               transform: "translateY(24px)",
             }}
           >
-            Since 2016, we've helped shape the technology landscape, creating breakthrough brands, products and protocols. We work with brands at the intersection of culture &amp; technology, applying our agile frameworks to sprint-based engagements and long-term partnerships. Founded by technologists, creatives &amp; strategists who have worked for some of the world's biggest brands, we're leveraging our cross-sector experience to create and launch emerging technology brands of the future.
+            Since 2019, we've helped shape the technology landscape, creating breakthrough brands, products and protocols. We work with brands at the intersection of culture &amp; technology, applying our agile frameworks to sprint-based engagements and long-term partnerships. Founded by technologists, creatives &amp; strategists who have worked for some of the world's biggest brands, we're leveraging our cross-sector experience to create and launch emerging technology brands of the future.
           </p>
 
           {/* CTA button */}
@@ -177,9 +177,8 @@ export function StudioAbout() {
           transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
         }
         .studio-about-cta:hover {
-          background-color: #ffffff !important;
-          color: #000000 !important;
-          border-color: #ffffff !important;
+          background-color: #ca7a3a !important;
+          border-color: #ca7a3a !important;
         }
       `}</style>
     </section>

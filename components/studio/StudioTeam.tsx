@@ -6,32 +6,26 @@ import Image from "next/image";
 const TEAM = [
   {
     id: "01",
-    name: "Anthony Logan",
-    title: "CEO & Founder",
+    name: "Anmol Gujral",
+    title: "Chief executive officer",
     photo: "https://res.cloudinary.com/deepcnbrz/image/upload/v1778653876/coders%20express/673e8e753711fbda19240478_Rayls_jui2an.webp",
     bio: "Anthony role is connecting our studio teams, ventures and partners. His experience building companies from the ground up across a multitude of industries, means he has a broad depth of knowledge across every aspect of venture building. Anthony works closely with our partner network of VC's, ensuring our founders can access advice and capital when they need it.",
   },
   {
     id: "02",
-    name: "Jamie Sellars",
-    title: "COO & Founder",
+    name: "Navjyot Singh",
+    title: "Chief operating officer",
     photo: "",
     bio: "Jamie oversees operations across all Coders Express verticals, ensuring seamless delivery across studio, ventures and marketing. With a background spanning strategy, operations and brand, Jamie brings the connective tissue that keeps complex, multi-stakeholder projects running on time and on brief.",
   },
   {
     id: "03",
-    name: "Luca Marchetti",
-    title: "Creative Director",
+    name: "Harshita Dewan",
+    title: "Creative Director ( Content & Strategies)",
     photo: "",
     bio: "Luca leads the creative vision across all Coders Express studio output. With a background in brand identity, motion and digital design, he has shaped campaigns and identities for Fortune 500 companies and emerging Web3 brands alike.",
   },
-  {
-    id: "04",
-    name: "Sara Kim",
-    title: "Head of Strategy",
-    photo: "",
-    bio: "Sara leads brand strategy and market positioning for Coders Express's clients. She brings experience from leading global agencies, helping brands navigate complex market shifts and communicate with clarity in emerging technology sectors.",
-  },
+
 ];
 
 function ToggleIcon({ isOpen }: { isOpen: boolean }) {

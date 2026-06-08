@@ -44,8 +44,8 @@ export const recentWorkContent: RecentWorkContent = {
   projects: [
     {
       id: "numbers-ai",
-      name: "Numbers AI",
-      tag: "AI",
+      name: "Luzid",
+      tag: "D2C",
       image: "/images/recent-work/numbers-ai.png",
       size: "normal",
       year: "2024",
@@ -54,8 +54,8 @@ export const recentWorkContent: RecentWorkContent = {
     },
     {
       id: "crypto-autos",
-      name: "Crypto Autos",
-      tag: "Web3",
+      name: "Feed Sync",
+      tag: "D2C",
       image: "/images/recent-work/crypto-autos.png",
       size: "normal",
       year: "2024",
