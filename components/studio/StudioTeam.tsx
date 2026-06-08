@@ -16,21 +16,21 @@ const TEAM = [
     name: "Jamie Sellars",
     title: "COO & Founder",
     photo: "",
-    bio: "Jamie oversees operations across all Noir verticals, ensuring seamless delivery across studio, ventures and marketing. With a background spanning strategy, operations and brand, Jamie brings the connective tissue that keeps complex, multi-stakeholder projects running on time and on brief.",
+    bio: "Jamie oversees operations across all Coders Express verticals, ensuring seamless delivery across studio, ventures and marketing. With a background spanning strategy, operations and brand, Jamie brings the connective tissue that keeps complex, multi-stakeholder projects running on time and on brief.",
   },
   {
     id: "03",
     name: "Luca Marchetti",
     title: "Creative Director",
     photo: "",
-    bio: "Luca leads the creative vision across all Noir studio output. With a background in brand identity, motion and digital design, he has shaped campaigns and identities for Fortune 500 companies and emerging Web3 brands alike.",
+    bio: "Luca leads the creative vision across all Coders Express studio output. With a background in brand identity, motion and digital design, he has shaped campaigns and identities for Fortune 500 companies and emerging Web3 brands alike.",
   },
   {
     id: "04",
     name: "Sara Kim",
     title: "Head of Strategy",
     photo: "",
-    bio: "Sara leads brand strategy and market positioning for Noir's clients. She brings experience from leading global agencies, helping brands navigate complex market shifts and communicate with clarity in emerging technology sectors.",
+    bio: "Sara leads brand strategy and market positioning for Coders Express's clients. She brings experience from leading global agencies, helping brands navigate complex market shifts and communicate with clarity in emerging technology sectors.",
   },
 ];
 

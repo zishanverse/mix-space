@@ -13,6 +13,8 @@ const child = spawn("next", ["dev"], {
   env: {
     ...process.env,
     NEXT_TEST_WASM_DIR: wasmDir,
+    // Disable Turbopack – use stable webpack (Turbopack panics on certain TS patterns)
+    NEXT_EXPERIMENTAL_TURBOPACK: "0",
   },
   shell: true,
   stdio: "inherit",

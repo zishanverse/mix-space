@@ -9,7 +9,7 @@ export function BookCallSection() {
   return (
     <section className="relative bg-black w-full py-32 md:py-48 flex flex-col items-center justify-center text-center px-6 overflow-hidden">
       {/* Heading */}
-      <motion.h2 
+      <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -21,7 +21,7 @@ export function BookCallSection() {
 
       {/* Animated "Book a Call" Button */}
       <motion.a
-        href="https://wa.me/919717191946"
+        href="/contact"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ export function BookCallSection() {
         }}
       >
         {/* Background animation layer */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0 w-full h-full bg-white z-0"
           initial={{ x: "-100%" }}
           animate={{ x: isHovered ? "0%" : "-100%" }}
@@ -44,27 +44,27 @@ export function BookCallSection() {
         />
 
         {/* Layout Container to handle direction swap */}
-        <motion.div 
+        <motion.div
           layout
           transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
           className={`relative z-10 flex items-center ${isHovered ? "flex-row-reverse" : "flex-row"}`}
         >
           {/* Icon Container - layout property makes it slide across space, animate handles rotation */}
-          <motion.div 
+          <motion.div
             layout
             animate={{ rotate: isHovered ? 360 : 0 }}
             transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
             className="w-14 h-14 bg-white rounded-full flex items-center justify-center transition-colors duration-500"
             style={{
-               backgroundColor: isHovered ? "#000000" : "#ffffff"
+              backgroundColor: isHovered ? "#000000" : "#ffffff"
             }}
           >
-            <svg 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="currentColor" 
-              xmlns="http://www.w3.org/2000/svg" 
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
               className="transition-colors duration-500"
               style={{ color: isHovered ? "#ffffff" : "#000000" }}
             >
@@ -73,7 +73,7 @@ export function BookCallSection() {
           </motion.div>
 
           {/* Text Label - layout property automates smooth transition as ordering flips */}
-          <motion.span 
+          <motion.span
             layout
             transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
             className="px-8 text-lg font-normal tracking-tight transition-colors duration-500"

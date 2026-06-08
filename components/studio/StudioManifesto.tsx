@@ -1,49 +1,102 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
-import { ScrollTrigger } from "@/lib/gsap";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const MANIFESTO_TEXT =
-  "We live at a time when technology is accelerating at an exponential rate, changing the way we live and relate to the world around us. Noir operates as a hybrid think tank and design studio. By studying the effects of emerging technologies we envision how forward-thinking companies can thrive amidst exponential change.";
+  "We live at a time when technology is accelerating at an exponential rate, changing the way we live and relate to the world around us. Coders Express operates as a hybrid think tank and design studio. By studying the effects of emerging technologies we envision how forward-thinking companies can thrive amidst exponential change.";
+
+// Use resolved hex — GSAP cannot tween FROM a CSS variable string
+const MUTED = "#555555"; // resolves --color-text-muted
+const LIT = "#ca7a3a";
+
+type GsapTimeline = ReturnType<typeof gsap.timeline>;
+
+/** Group word-span elements into visual lines by their rounded top offset */
+function groupIntoLines(spans: HTMLSpanElement[]): HTMLSpanElement[][] {
+  const lines: HTMLSpanElement[][] = [];
+  let current: HTMLSpanElement[] = [];
+  let lastTop: number | null = null;
+
+  spans.forEach((el) => {
+    const top = Math.round(el.getBoundingClientRect().top);
+    if (lastTop === null || top !== lastTop) {
+      if (current.length > 0) lines.push(current);
+      current = [el];
+      lastTop = top;
+    } else {
+      current.push(el);
+    }
+  });
+
+  if (current.length > 0) lines.push(current);
+  return lines;
+}
 
 export function StudioManifesto() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const wordsRef = useRef<HTMLSpanElement[]>([]);
   const ghostRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const triggersRef = useRef<ScrollTrigger[]>([]);
+  const tlsRef = useRef<GsapTimeline[]>([]);
 
   const words = MANIFESTO_TEXT.split(" ");
 
   useEffect(() => {
-    if (!sectionRef.current || wordsRef.current.length === 0) return;
+    const section = sectionRef.current;
+    const para = textRef.current;
+    if (!section || !para) return;
 
-    const ctx = gsap.context(() => {
-      // Start all words at muted grey
-      gsap.set(wordsRef.current, { color: "var(--color-text-muted)" });
+    // ── Helpers ──────────────────────────────────────────────────────────
+    function killLineAnimations() {
+      triggersRef.current.forEach((t) => t.kill());
+      triggersRef.current = [];
+      tlsRef.current.forEach((t) => t.kill());
+      tlsRef.current = [];
+    }
 
-      // Single ScrollTrigger driving all word reveals
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top 70%",
-        end: "bottom 30%",
-        scrub: 1,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          const total = wordsRef.current.length - 1;
-          wordsRef.current.forEach((word, index) => {
-            if (!word) return;
-            const threshold = (index / total) * 0.85;
-            gsap.to(word, {
-              color: progress >= threshold ? "#ffffff" : "var(--color-text-muted)",
-              duration: 0.2,
-              ease: "none",
-              overwrite: "auto",
-            });
-          });
-        },
+    // ── Line-by-line scroll animation ────────────────────────────────────
+    function buildLineAnimations() {
+      killLineAnimations();
+
+      const spans = Array.from(para!.querySelectorAll<HTMLSpanElement>("[data-word]"));
+
+      // Reset to muted using the actual hex so GSAP has a real colour to tween from
+      gsap.set(spans, { color: MUTED });
+
+      const lines = groupIntoLines(spans);
+
+      lines.forEach((lineSpans) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: lineSpans[0],
+            start: "top center",
+            end: "bottom center",
+            scrub: 0.6,
+          },
+        });
+
+        // fromTo with explicit hex colours so GSAP can always interpolate correctly
+        tl.fromTo(
+          lineSpans,
+          { color: MUTED },
+          { color: LIT, duration: 0.3, ease: "none" },
+          0
+        );
+
+        tlsRef.current.push(tl);
       });
 
-      // Ghost "Studio" — fades in as section enters
+      ScrollTrigger.refresh();
+    }
+
+    // ── Ghost watermark ──────────────────────────────────────────────────
+    const ctx = gsap.context(() => {
       if (ghostRef.current) {
         gsap.fromTo(
           ghostRef.current,
@@ -51,7 +104,7 @@ export function StudioManifesto() {
           {
             opacity: 0.055,
             scrollTrigger: {
-              trigger: sectionRef.current,
+              trigger: section,
               start: "top 90%",
               end: "top 20%",
               scrub: 1.5,
@@ -61,16 +114,30 @@ export function StudioManifesto() {
         gsap.to(ghostRef.current, {
           opacity: 0,
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: section,
             start: "bottom 80%",
             end: "bottom 10%",
             scrub: 1.5,
           },
         });
       }
-    }, sectionRef);
+    }, section);
 
-    return () => ctx.revert();
+    // First build — defer one frame for layout
+    const rafId = requestAnimationFrame(() => buildLineAnimations());
+
+    // Rebuild on resize for responsiveness
+    const ro = new ResizeObserver(() => {
+      requestAnimationFrame(() => buildLineAnimations());
+    });
+    ro.observe(para);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      ro.disconnect();
+      killLineAnimations();
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -83,7 +150,7 @@ export function StudioManifesto() {
         paddingBottom: "var(--space-3xl, 180px)",
       }}
     >
-      {/* Ghost "Studio" watermark from hero */}
+      {/* Ghost "Studio" watermark */}
       <div
         ref={ghostRef}
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
@@ -111,14 +178,14 @@ export function StudioManifesto() {
         style={{ borderTop: "1px solid rgba(255,255,255,0.10)" }}
       />
 
-      {/* Content container */}
+      {/* Content */}
       <div
         className="relative z-10 mx-auto w-full"
         style={{ maxWidth: "1100px", padding: "0 40px" }}
       >
-        {/* Padding between border and text */}
         <div style={{ paddingTop: "clamp(60px, 8vw, 120px)" }}>
           <p
+            ref={textRef}
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "clamp(22px, 3.2vw, 46px)",
@@ -130,13 +197,10 @@ export function StudioManifesto() {
             }}
           >
             {words.map((word, i) => (
-              // Add a literal space after each word so HTML renders spacing naturally
               <span key={i}>
                 <span
-                  ref={(el) => {
-                    if (el) wordsRef.current[i] = el;
-                  }}
-                  style={{ color: "var(--color-text-muted)" }}
+                  data-word="true"
+                  style={{ color: MUTED, display: "inline", transition: "none" }}
                 >
                   {word}
                 </span>

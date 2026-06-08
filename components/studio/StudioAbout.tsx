@@ -82,7 +82,7 @@ export function StudioAbout() {
               textTransform: "uppercase" as const,
             }}
           >
-            About Noir®
+            About Coders Express®
           </span>
         </div>
 
@@ -107,10 +107,10 @@ export function StudioAbout() {
             }}
           >
             {/* Mixed weight — lighter text / bold emphasis / lighter / bold */}
-            <span style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>Noir is a </span>
-            <span style={{ color: "#ffffff", fontWeight: 700 }}>global brand &amp; design studio </span>
+            <span style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>CodersExpress provides </span>
+            <span style={{ color: "#ffffff", fontWeight: 700 }}>services globally with its design &amp; development studio </span>
             <span style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>based in </span>
-            <span style={{ color: "#ffffff", fontWeight: 700 }}>London &amp; Dubai.</span>
+            <span style={{ color: "#ffffff", fontWeight: 700 }}>Delhi, India.</span>
           </h2>
 
           {/* Body paragraph */}

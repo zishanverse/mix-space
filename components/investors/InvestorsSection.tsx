@@ -33,17 +33,38 @@ export function InvestorsSection() {
     logos.map((url, i) => (
       <div
         key={i}
-        className="px-6 py-4 flex items-center justify-center min-w-[120px] sm:min-w-[180px] md:min-w-[220px]"
+        className="px-3 flex items-center justify-center"
       >
-        <div className="relative h-8 sm:h-10 md:h-12 w-full max-w-[140px] sm:max-w-[180px]">
-          <Image
-            src={url}
-            alt="Partner Logo"
-            fill
-            unoptimized
-            className="object-contain hover:scale-110 transition-all duration-500 cursor-pointer"
-            sizes="(max-width: 640px) 120px, (max-width: 768px) 160px, 200px"
+        {/* Outer glow ring — only visible on hover */}
+        <div className="relative group">
+          <div
+            className="absolute -inset-[2px] rounded-[20px] opacity-0 group-hover:opacity-100
+              bg-gradient-to-br from-white/40 via-white/10 to-white/30
+              transition-opacity duration-500 blur-[1px]"
           />
+          <div
+            className="relative flex items-center justify-center
+              px-8 py-5 rounded-[18px]
+              bg-gradient-to-br from-white via-white/98 to-slate-50
+              border border-white/30
+              shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(0,0,0,0.05)]
+              group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.6),inset_0_1px_0_rgba(255,255,255,1)]
+              group-hover:from-white group-hover:via-white group-hover:to-white
+              group-hover:-translate-y-0.5
+              transition-all duration-300 ease-out
+              min-w-[160px] sm:min-w-[210px] md:min-w-[240px] min-h-[80px] sm:min-h-[90px] md:min-h-[100px]"
+          >
+            <div className="relative h-12 sm:h-14 md:h-16 w-full max-w-[160px] sm:max-w-[200px] md:max-w-[220px]">
+              <Image
+                src={url}
+                alt="Partner Logo"
+                fill
+                unoptimized
+                className="object-contain group-hover:scale-105 group-hover:brightness-90 transition-all duration-400 cursor-pointer"
+                sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, 220px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     ));

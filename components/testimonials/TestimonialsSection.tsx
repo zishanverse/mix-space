@@ -6,51 +6,44 @@ import Image from "next/image";
 const testimonials = [
   {
     id: 1,
-    quote: "Whether it's conducting interviews with the team, or consistent creative iterations based on feedback. It's been an absolute pleasure to work with the Coders Express team. They deliver results and were a joy to collaborate with.",
-    name: "Charles Read",
-    company: "Rarestone Capital",
+    quote: "Working with CodersExpress has been a great experience for MyBoat Ride. They handled our social media and website efficiently and delivered everything exactly within the promised timeline. The team was responsive, professional, and easy to work with. We’re really happy with the quality of work and overall experience.",
+    name: "Gurpreet Bakshi",
+    company: "Ceo, MyBoatRide",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
   },
   {
     id: 2,
-    quote: "We have been working alongside the Coders Express team on multiple projects and have created many new brands together. They have consistently high quality delivery and amazing strategic vision.",
-    name: "Milton Lam",
-    company: "Animoca Brands",
+    quote: "Our experience with CodersExpress for Macaire’s branding and logo design has been excellent. They understood our vision perfectly and created a brand identity that truly reflects our style. The process was smooth, the team was supportive throughout, and the final outcome exceeded our expectations.",
+    name: "Harshdeep Singh",
+    company: "Founder, Macaire",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
   },
   {
     id: 3,
-    quote: "Coders Express have been instrumental in consolidating our vision for Hydro. They have built the brand from the ground up, deeply integrating into our team to create a powerful mission led strategy, create beautiful branding and working meticulously on every single detail of our user experience design journey for our application.",
-    name: "Reggie Raghav",
-    company: "Hydro",
+    quote: "Working with CodersExpress for our social media marketing and website development was a smooth and satisfying experience. Their team understood our requirements well, maintained clear communication throughout the process, and delivered quality work on time. We’re really happy with the overall results and the support we received.",
+    name: "Harsh Tanwar",
+    company: "Founder, LevelUpSkool",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
   },
   {
     id: 4,
-    quote: "We have been working with Coders Express across a number of different projects and they consistently exceed our expectations in high-fidelity design systems and premium aesthetics.",
-    name: "Jen Hioki",
-    company: "Moonpay",
+    quote: "We had a great experience working with CodersExpress for our webinar content. From ideation and creative planning to designing and delivering the final videos, the team handled everything seamlessly. They understood our requirements well, stayed on track with timelines, and delivered engaging content that matched our vision perfectly.",
+    name: "Aman Singh",
+    company: "CEO, Feed Sync",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
   },
   {
     id: 5,
-    quote: "Coders Express brought Cartesi to life. After digging deep to understand who we were as founders and where the company stood, they created an enduring visual strategy.",
-    name: "Claudio de Oliveira Marques",
-    company: "Cartesi",
+    quote: "Working with CodersExpress for our social media management and marketing has been a wonderful experience. From editing impactful videos to handling our digital presence, the team has been dedicated and professional throughout. They understand our vision, maintain consistency, and have helped us communicate our message effectively across platforms.",
+    name: "Hardayal Singh",
+    company: "Founder, United Sikhs",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
   },
   {
     id: 6,
-    quote: "Coders Express have so much ambition as an agency and were extremely efficient throughout the project, always available and not afraid to challenge the brief to get the best results. Anthony and his team really immersed themselves into our industry and had a great understanding of future proofing our brand and website.",
-    name: "Andy Morris",
-    company: "Skyscanner",
-    avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
-  },
-  {
-    id: 7,
-    quote: "Partnering with Coders Express on our new direction and website has transformed the Biconomy brand. The team brought visionary insights to life through design and storytelling and seamlessly executed our digital experience. Our brand feels supercharged and ready for our next stage of growth.",
-    name: "Ahmed Al-Balaghi",
-    company: "Biconomy",
+    quote: "Working with CodersExpress for our social media management has been a great experience. From handling shoots and content ideation to managing our overall social presence, the team has been creative, proactive, and consistent. They understand our brand well and always come up with fresh ideas that align with our vision.",
+    name: "Kabir Sawhney",
+    company: "Co-founder, torque & gear",
     avatar: "https://cdn.prod.website-files.com/6687c6ec7db3d4bbcf259b6a/66c20e7b2c21f55a63aa278b_bicoahmed.avif",
   },
 ];
@@ -85,7 +78,7 @@ export function TestimonialsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
         <h2 className="text-white text-[clamp(48px,8vw,96px)] font-normal leading-[1.1] tracking-tight max-w-2xl">
           Our Testimonials
-        </h2> 
+        </h2>
 
         {/* Indicator */}
         <div className="flex items-center gap-4 text-[#555] font-mono text-lg pb-4">

@@ -19,7 +19,7 @@ export function AboutUsSection({
   return (
     <section
       id="about-coders-express"
-      className="relative flex min-h-[50vh] flex-col items-center justify-center bg-black px-4 overflow-x-hidden sm:px-6 lg:px-8 pb-60"
+      className="relative flex min-h-screen flex-col items-center justify-center bg-black px-4 overflow-x-hidden sm:px-6 lg:px-8 py-40"
     >
       {/* Section Labels */}
       <SectionLabels {...aboutUsContent.labels} />

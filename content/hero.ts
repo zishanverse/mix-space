@@ -1,7 +1,7 @@
 /**
  * Hero Section Content Data
  * All text, links, and configuration for the hero component
- * Based on noir.io hero section
+ * Based on Coders Express hero section
  */
 
 export interface HeroContent {
