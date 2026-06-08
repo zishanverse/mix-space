@@ -185,40 +185,40 @@ export function StudioFocus() {
                 width: "100%",
               }}
             >
-            <div
-              style={{
-                position: "relative",
-                width: "100%",
-                aspectRatio: "4/3",
-                borderRadius: "12px",
-                overflow: "hidden",
-                backgroundColor: active.bg,
-                transition: "background-color 0.4s ease",
-              }}
-            >
-              {/* Video layers — crossfade */}
-              {INDUSTRIES.map((ind) => (
-                <video
-                  key={ind.id}
-                  src={ind.videoSrc}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    opacity: activeId === ind.id ? 1 : 0,
-                    transition: "opacity 0.5s ease",
-                    zIndex: activeId === ind.id ? 2 : 1,
-                  }}
-                />
-              ))}
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  aspectRatio: "4/3",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  backgroundColor: active.bg,
+                  transition: "background-color 0.4s ease",
+                }}
+              >
+                {/* Video layers — crossfade */}
+                {INDUSTRIES.map((ind) => (
+                  <video
+                    key={ind.id}
+                    src={ind.videoSrc}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      opacity: activeId === ind.id ? 1 : 0,
+                      transition: "opacity 0.5s ease",
+                      zIndex: activeId === ind.id ? 2 : 1,
+                    }}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
           </div>
 
           {/* RIGHT — industry name list */}
@@ -243,7 +243,7 @@ export function StudioFocus() {
                       fontWeight: isActive ? 500 : 400,
                       lineHeight: 1.1,
                       letterSpacing: "-0.025em",
-                      color: isActive ? "#ca8a04" : "rgba(255,255,255,0.18)",
+                      color: isActive ? "#ca7a3a" : "rgba(255,255,255,0.18)",
                       cursor: "pointer",
                       transition: "color 0.25s ease, font-weight 0.25s ease",
                       padding: "clamp(20px, 2.5vh, 40px) 0",
