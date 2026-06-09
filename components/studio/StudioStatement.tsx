@@ -47,11 +47,10 @@ export function StudioStatement() {
   return (
     <section
       ref={sectionRef}
-      className="w-full"
+      className="w-full px-5 sm:px-10 py-20 md:py-32"
       style={{
         backgroundColor: "var(--background)",
         borderTop: "1px solid rgba(255,255,255,0.08)",
-        padding: "var(--space-2xl, 120px) 40px",
       }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>

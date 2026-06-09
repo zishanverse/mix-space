@@ -13,7 +13,14 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
         hostname: "download-video-ak.vimeocdn.com",
+      }, {
+        protocol: "https",
+        hostname: "cdn.dribbble.com",
       },
     ],
   },

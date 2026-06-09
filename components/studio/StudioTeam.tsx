@@ -201,10 +201,7 @@ export function StudioTeam() {
         padding: "var(--space-xl, 80px) 0 var(--space-2xl, 120px) 0",
       }}
     >
-      <div
-        className="mx-auto w-full"
-        style={{ maxWidth: "1440px", padding: "0 40px" }}
-      >
+      <div className="section-container">
         {/* Section header */}
         <div
           className="flex items-center gap-3 mb-10"

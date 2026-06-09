@@ -232,19 +232,13 @@ export function StudioModel() {
   return (
     <section
       ref={sectionRef}
-      className="w-full"
+      className="w-full px-5 sm:px-10 py-20 md:py-32"
       style={{
         backgroundColor: "var(--background)",
-        padding: "var(--space-xl, 80px) 40px var(--space-xl, 80px) 40px",
       }}
     >
       <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          width: "100%",
-        }}
-        className="flex-col md:flex-row"
+        className="flex flex-col md:flex-row gap-5 w-full max-w-[1440px] mx-auto"
       >
         {PANELS.map((panel, i) => (
           <Panel

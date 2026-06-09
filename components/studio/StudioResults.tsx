@@ -169,8 +169,7 @@ export function StudioResults() {
     >
       {/* Label */}
       <div
-        style={{ padding: "0 40px", marginBottom: "32px" }}
-        className="flex items-center gap-3"
+        className="section-container flex items-center gap-3 mb-8"
       >
         <div
           style={{

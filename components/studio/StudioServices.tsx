@@ -200,10 +200,7 @@ export function StudioServices() {
         padding: "var(--space-xl, 80px) 0 var(--space-2xl, 120px) 0",
       }}
     >
-      <div
-        className="mx-auto w-full"
-        style={{ maxWidth: "1440px", padding: "0 40px" }}
-      >
+      <div className="section-container">
         {/* Section header row — stacks on mobile, 3 col grid on desktop */}
         <div
           className="flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-[40px] mb-10"

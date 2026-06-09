@@ -11,11 +11,35 @@ model ContactSubmission {
   id           String   @id @default(cuid())
   name         String
   email        String
-  type         String   // "project-enquiry" | "careers" | "speak-to-team"
+  type         String
   reason       String?
   companyName  String?
   companyStage String?
   hearAboutUs  String?
   message      String
   createdAt    DateTime @default(now())
+}
+
+model Admin {
+  id        String   @id
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Blog {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String   @default("")
+  content     String   @db.Text
+  imageUrl    String?
+  category    String   @default("Insights")
+  readTime    String   @default("5 min read")
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  authorName  String   @default("Coders Express")
+  authorRole  String?  @default("Team")
+  authorImage String?
 }

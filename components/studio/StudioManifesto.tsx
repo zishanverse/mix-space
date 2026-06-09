@@ -180,8 +180,8 @@ export function StudioManifesto() {
 
       {/* Content */}
       <div
-        className="relative z-10 mx-auto w-full"
-        style={{ maxWidth: "1100px", padding: "0 40px" }}
+        className="relative z-10 mx-auto w-full px-5 sm:px-10"
+        style={{ maxWidth: "1100px" }}
       >
         <div style={{ paddingTop: "clamp(60px, 8vw, 120px)" }}>
           <p
